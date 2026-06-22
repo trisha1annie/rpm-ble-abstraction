@@ -3,15 +3,111 @@ service:
   uuid: "181D"
   name: "Weight Scale"
 
+types:
+  date_time:
+    description: "Date Time characteristic structure (org.bluetooth.characteristic.date_time)"
+    fields:
+      - name: Year
+        type: uint16
+        size_bytes: 2
+      - name: Month
+        type: uint8
+        size_bytes: 1
+      - name: Day
+        type: uint8
+        size_bytes: 1
+      - name: Hours
+        type: uint8
+        size_bytes: 1
+      - name: Minutes
+        type: uint8
+        size_bytes: 1
+      - name: Seconds
+        type: uint8
+        size_bytes: 1
+
 characteristics:
   - uuid: "2A9D"
     name: "Weight Measurement"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    access: ["indicate"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: Flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: measurement_units_imperial # 0 = SI, 1 = Imperial
+            bit_1: time_stamp_present
+            bit_2: user_id_present
+            bit_3: bmi_and_height_present
+            # bits 4-7 reserved
+
+        - name: Weight
+          type: uint16
+          size_bytes: 2
+          unit_logic:
+            if: "Flags.measurement_units_imperial == 0"
+            then: { unit: "kg", resolution: 0.005 }
+            else: { unit: "lb", resolution: 0.01 }
+
+        - name: Time Stamp
+          type: struct
+          ref: date_time
+          size_bytes: 7
+          present_if: "Flags.time_stamp_present == 1"
+
+        - name: User ID
+          type: uint8
+          size_bytes: 1
+          present_if: "Flags.user_id_present == 1"
+          # TODO: Handle special value 0xFF representing "unknown user" downstream if needed
+
+        - name: BMI
+          type: uint16
+          size_bytes: 2
+          unit: "kg/m^2"
+          resolution: 0.1
+          present_if: "Flags.bmi_and_height_present == 1"
+
+        - name: Height
+          type: uint16
+          size_bytes: 2
+          unit_logic:
+            if: "Flags.measurement_units_imperial == 0"
+            then: { unit: "m", resolution: 0.001 }
+            else: { unit: "in", resolution: 0.1 }
+          present_if: "Flags.bmi_and_height_present == 1"
 
   - uuid: "2A9E"
     name: "Weight Scale Feature"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    access: ["read"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: Weight Scale Feature
+          type: boolean[32]
+          size_bytes: 4
+          bitfield:
+            bit_0: time_stamp_supported
+            bit_1: multiple_users_supported
+            bit_2: bmi_supported
+            bit_3_to_6:
+              name: weight_measurement_resolution
+              values:
+                0b0000: not_specified
+                0b0001: 0.5_kg_or_1_lb
+                0b0010: 0.2_kg_or_0.5_lb
+                0b0011: 0.1_kg_or_0.2_lb
+                0b0100: 0.05_kg_or_0.1_lb
+                0b0101: 0.02_kg_or_0.05_lb
+                0b0110: 0.01_kg_or_0.02_lb
+                0b0111: 0.005_kg_or_0.01_lb
+                0b1000-0b1111: reserved_for_future_use
+            bit_7_to_9:
+              name: height_measurement_resolution
+              values:
+                0b000: not_specified
+                0b001: 0.01_m_or_1_in
+                0b010: 0.005_m_or_0.5_in
+                0b011: 0.001_m_or_0.1_in
+                0b100-0b111: reserved_for_future_use
+            # bits 10-31 reserved
