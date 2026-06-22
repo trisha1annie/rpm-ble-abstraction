@@ -1,38 +1,38 @@
 device_type: weight_scale
 service:
   uuid: "181D"
-  name: "Weight Scale"
+  name: weight_scale
 
 types:
   date_time:
     description: "Date Time characteristic structure (org.bluetooth.characteristic.date_time)"
     fields:
-      - name: Year
+      - name: year
         type: uint16
         size_bytes: 2
-      - name: Month
+      - name: month
         type: uint8
         size_bytes: 1
-      - name: Day
+      - name: day
         type: uint8
         size_bytes: 1
-      - name: Hours
+      - name: hours
         type: uint8
         size_bytes: 1
-      - name: Minutes
+      - name: minutes
         type: uint8
         size_bytes: 1
-      - name: Seconds
+      - name: seconds
         type: uint8
         size_bytes: 1
 
 characteristics:
   - uuid: "2A9D"
-    name: "Weight Measurement"
+    name: weight_measurement
     access: ["indicate"]
     payload_schema:
       fields:
-        - name: Flags
+        - name: flags
           type: boolean[8]
           size_bytes: 1
           bitfield:
@@ -42,48 +42,48 @@ characteristics:
             bit_3: bmi_and_height_present
             # bits 4-7 reserved
 
-        - name: Weight
+        - name: weight
           type: uint16
           size_bytes: 2
           unit_logic:
-            if: "Flags.measurement_units_imperial == 0"
+            if: "flags.measurement_units_imperial == 0"
             then: { unit: "kg", resolution: 0.005 }
             else: { unit: "lb", resolution: 0.01 }
 
-        - name: Time Stamp
+        - name: time_stamp
           type: struct
           ref: date_time
           size_bytes: 7
-          present_if: "Flags.time_stamp_present == 1"
+          present_if: "flags.time_stamp_present == 1"
 
-        - name: User ID
+        - name: user_id
           type: uint8
           size_bytes: 1
-          present_if: "Flags.user_id_present == 1"
+          present_if: "flags.user_id_present == 1"
           # TODO: Handle special value 0xFF representing "unknown user" downstream if needed
 
-        - name: BMI
+        - name: bmi
           type: uint16
           size_bytes: 2
           unit: "kg/m^2"
           resolution: 0.1
-          present_if: "Flags.bmi_and_height_present == 1"
+          present_if: "flags.bmi_and_height_present == 1"
 
-        - name: Height
+        - name: height
           type: uint16
           size_bytes: 2
           unit_logic:
-            if: "Flags.measurement_units_imperial == 0"
+            if: "flags.measurement_units_imperial == 0"
             then: { unit: "m", resolution: 0.001 }
             else: { unit: "in", resolution: 0.1 }
-          present_if: "Flags.bmi_and_height_present == 1"
+          present_if: "flags.bmi_and_height_present == 1"
 
   - uuid: "2A9E"
-    name: "Weight Scale Feature"
+    name: weight_scale_feature
     access: ["read"]
     payload_schema:
       fields:
-        - name: Weight Scale Feature
+        - name: weight_scale_feature
           type: boolean[32]
           size_bytes: 4
           bitfield:
