@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "generated_at": "2026-06-17T02:39:57.503186+00:00",
+    "source_repo": "NordicSemiconductor/bluetooth-numbers-database",
+    "description": "Offline cache for SIG-standard GATT UUIDs (filtered)"
+  },
+  "services": {
+    "1810": {
+      "name": "Blood Pressure",
+      "identifier": "org.bluetooth.service.blood_pressure",
+      "source": "gss"
+    },
+    "1822": {
+      "name": "Pulse Oximeter Service",
+      "identifier": "org.bluetooth.service.pulse_oximeter",
+      "source": "gss"
+    },
+    "181D": {
+      "name": "Weight Scale",
+      "identifier": "org.bluetooth.service.weight_scale",
+      "source": "gss"
+    }
+  },
+  "characteristics": {
+    "2A49": {
+      "name": "Blood Pressure Feature",
+      "identifier": "org.bluetooth.characteristic.blood_pressure_feature",
+      "source": "gss"
+    },
+    "2A35": {
+      "name": "Blood Pressure Measurement",
+      "identifier": "org.bluetooth.characteristic.blood_pressure_measurement",
+      "source": "gss"
+    },
+    "2A36": {
+      "name": "Intermediate Cuff Pressure",
+      "identifier": "org.bluetooth.characteristic.intermediate_cuff_pressure",
+      "source": "gss"
+    },
+    "2A5F": {
+      "name": "PLX Continuous Measurement Characteristic",
+      "identifier": "org.bluetooth.characteristic.plx_continuous_measurement",
+      "source": "gss"
+    },
+    "2A60": {
+      "name": "PLX Features",
+      "identifier": "org.bluetooth.characteristic.plx_features",
+      "source": "gss"
+    },
+    "2A5E": {
+      "name": "PLX Spot-Check Measurement",
+      "identifier": "org.bluetooth.characteristic.plx_spot_check_measurement",
+      "source": "gss"
+    },
+    "2A52": {
+      "name": "Record Access Control Point",
+      "identifier": "org.bluetooth.characteristic.record_access_control_point",
+      "source": "gss"
+    },
+    "2A9D": {
+      "name": "Weight Measurement",
+      "identifier": "org.bluetooth.characteristic.weight_measurement",
+      "source": "gss"
+    },
+    "2A9E": {
+      "name": "Weight Scale Feature",
+      "identifier": "org.bluetooth.characteristic.weight_scale_feature",
+      "source": "gss"
+    }
+  }
+}

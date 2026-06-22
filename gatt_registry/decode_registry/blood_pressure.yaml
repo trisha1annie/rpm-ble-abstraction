@@ -1,0 +1,23 @@
+device_type: blood_pressure_monitor
+service:
+  uuid: "1810"
+  name: "Blood Pressure"
+
+characteristics:
+  - uuid: "2A35"
+    name: "Blood Pressure Measurement"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A36"
+    name: "Intermediate Cuff Pressure"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A49"
+    name: "Blood Pressure Feature"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true

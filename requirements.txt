@@ -1,0 +1,4 @@
+# Python dependencies for the RPM BLE Abstraction project
+
+# Required for parsing the decode_registry YAML files
+PyYAML>=6.0.1

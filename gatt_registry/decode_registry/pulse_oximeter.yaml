@@ -1,0 +1,29 @@
+device_type: pulse_oximeter
+service:
+  uuid: "1822"
+  name: "Pulse Oximeter Service"
+
+characteristics:
+  - uuid: "2A5E"
+    name: "PLX Spot-Check Measurement"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A5F"
+    name: "PLX Continuous Measurement"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A60"
+    name: "PLX Features"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A52"
+    name: "Record Access Control Point"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true

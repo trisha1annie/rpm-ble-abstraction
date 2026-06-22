@@ -1,0 +1,17 @@
+device_type: weight_scale
+service:
+  uuid: "181D"
+  name: "Weight Scale"
+
+characteristics:
+  - uuid: "2A9D"
+    name: "Weight Measurement"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
+
+  - uuid: "2A9E"
+    name: "Weight Scale Feature"
+    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    payload_schema:
+      placeholder: true
