@@ -9,22 +9,6 @@ TARGET_SERVICES = {
     "1822": "Pulse Oximeter",
 }
 
-# The characteristics we want to support for those services
-TARGET_CHARACTERISTICS = {
-    # Blood Pressure
-    "2A35": "Blood Pressure Measurement",
-    "2A36": "Intermediate Cuff Pressure",
-    "2A49": "Blood Pressure Feature",
-    # Weight Scale
-    "2A9D": "Weight Measurement",
-    "2A9E": "Weight Scale Feature",
-    # Pulse Oximeter
-    "2A5E": "PLX Spot-Check Measurement",
-    "2A5F": "PLX Continuous Measurement",
-    "2A60": "PLX Features",
-    "2A52": "Record Access Control Point",
-}
-
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
@@ -59,21 +43,16 @@ def main():
     cache_dir = os.path.join(base_dir, "cache")
     
     services_file = os.path.join(vendor_dir, "service_uuids.json")
-    characteristics_file = os.path.join(vendor_dir, "characteristic_uuids.json")
     
-    if not os.path.exists(services_file) or not os.path.exists(characteristics_file):
+    if not os.path.exists(services_file):
         print(f"Error: Vendor JSON files not found in {vendor_dir}")
         print("Please ensure the NordicSemiconductor repository is cloned.")
         return
 
     services_data = load_json(services_file)
-    characteristics_data = load_json(characteristics_file)
 
     print("Extracting SIG-standard services...")
     services_cache = extract_metadata(services_data, set(TARGET_SERVICES.keys()))
-    
-    print("Extracting related characteristics...")
-    characteristics_cache = extract_metadata(characteristics_data, set(TARGET_CHARACTERISTICS.keys()))
 
     cache_output = {
         "_meta": {
@@ -81,8 +60,7 @@ def main():
             "source_repo": "NordicSemiconductor/bluetooth-numbers-database",
             "description": "Offline cache for SIG-standard GATT UUIDs (filtered)"
         },
-        "services": services_cache,
-        "characteristics": characteristics_cache
+        "services": services_cache
     }
 
     os.makedirs(cache_dir, exist_ok=True)
@@ -91,7 +69,7 @@ def main():
     with open(cache_filepath, 'w', encoding='utf-8') as f:
         json.dump(cache_output, f, indent=2)
         
-    print(f"Successfully wrote {len(services_cache)} services and {len(characteristics_cache)} characteristics to {cache_filepath}")
+    print(f"Successfully wrote {len(services_cache)} services to {cache_filepath}")
 
 if __name__ == "__main__":
     main()
