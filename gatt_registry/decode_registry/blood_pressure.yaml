@@ -1,23 +1,437 @@
 device_type: blood_pressure_monitor
 service:
   uuid: "1810"
-  name: "Blood Pressure"
+  name: blood_pressure
+
+types:
+  date_time:
+    description: "Date Time characteristic structure (org.bluetooth.characteristic.date_time)"
+    fields:
+      - name: year
+        type: uint16
+        size_bytes: 2
+      - name: month
+        type: uint8
+        size_bytes: 1
+      - name: day
+        type: uint8
+        size_bytes: 1
+      - name: hours
+        type: uint8
+        size_bytes: 1
+      - name: minutes
+        type: uint8
+        size_bytes: 1
+      - name: seconds
+        type: uint8
+        size_bytes: 1
+  medfloat16:
+    description: "IEEE 11073-20601 SFLOAT — 16-bit medical float"
+    size_bytes: 2
+    byte_order: little_endian
+    bits:
+      exponent: "[15:12] — signed 4-bit (two's complement)"
+      mantissa: "[11:0]  — signed 12-bit (two's complement)"
+    decode: "value = mantissa × 10^exponent"
+    special_values:
+      0x07FF: NaN       # field unused or not present
+      0x07FE: +INFINITY
+      0x0802: -INFINITY
+      0x0800: NRes      # not at this resolution
 
 characteristics:
   - uuid: "2A35"
-    name: "Blood Pressure Measurement"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: blood_pressure_measurement
+    access: ["indicate"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: blood_pressure_units_kpa # 0 = mmHg, 1 = kPa
+            bit_1: time_stamp_present
+            bit_2: pulse_rate_present
+            bit_3: user_id_present
+            bit_4: measurement_status_present
+            # bits 5-7 reserved
+            
+        - name: systolic
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+            
+        - name: diastolic
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+
+        - name: mean_arterial_pressure
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+
+        - name: time_stamp
+          type: struct
+          ref: date_time
+          size_bytes: 7
+          present_if: "flags.time_stamp_present == 1"
+          
+        - name: pulse_rate
+          type: medfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.pulse_rate_present == 1"
+          
+        - name: user_id
+          type: uint8
+          size_bytes: 1
+          present_if: "flags.user_id_present == 1"
+          # TODO: 0xFF = Unknown User
+          
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            bit_0: body_movement_detected
+            bit_1: cuff_too_loose
+            bit_2: irregular_pulse_detected
+            bit_3_to_4:
+              name: pulse_rate_range_detection
+              values:
+                0b00: within_range
+                0b01: exceeds_upper_limit
+                0b10: less_than_lower_limit
+                0b11: reserved_for_future_use
+            bit_5: improper_measurement_position
+            # bits 6-15 reserved
 
   - uuid: "2A36"
-    name: "Intermediate Cuff Pressure"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: intermediate_cuff_pressure
+    condition: "optional"
+    access: ["notify"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: intermediate_cuff_pressure_units_kpa # 0 = mmHg, 1 = kPa
+            bit_1: time_stamp_present
+            bit_2: pulse_rate_present
+            bit_3: user_id_present
+            bit_4: measurement_status_present
+            
+        - name: current_cuff_pressure
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.intermediate_cuff_pressure_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+            
+        - name: diastolic_unused
+          type: medfloat16
+          size_bytes: 2
+          always_present: true
+          expected_value: NaN
+          notes: "Not used, always set to NaN per spec"
+          
+        - name: mean_arterial_pressure_unused
+          type: medfloat16
+          size_bytes: 2
+          always_present: true
+          expected_value: NaN
+          notes: "Not used, always set to NaN per spec"
+
+        - name: time_stamp
+          type: struct
+          ref: date_time
+          size_bytes: 7
+          present_if: "flags.time_stamp_present == 1"
+          
+        - name: pulse_rate
+          type: medfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.pulse_rate_present == 1"
+          
+        - name: user_id
+          type: uint8
+          size_bytes: 1
+          present_if: "flags.user_id_present == 1"
+          
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            bit_0: body_movement_detected
+            bit_1: cuff_too_loose
+            bit_2: irregular_pulse_detected
+            bit_3_to_4:
+              name: pulse_rate_range_detection
+              values:
+                0b00: within_range
+                0b01: exceeds_upper_limit
+                0b10: less_than_lower_limit
+                0b11: reserved_for_future_use
+            bit_5: improper_measurement_position
 
   - uuid: "2A49"
-    name: "Blood Pressure Feature"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: blood_pressure_feature
+    access: ["read"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: blood_pressure_feature
+          type: boolean[16]
+          size_bytes: 2
+          bitfield:
+            bit_0: body_movement_detection_supported
+            bit_1: cuff_fit_detection_supported
+            bit_2: irregular_pulse_detection_supported
+            bit_3: pulse_rate_range_detection_supported
+            bit_4: measurement_position_detection_supported
+            bit_5: multiple_bond_supported
+            bit_6: e2e_crc_supported
+            bit_7: user_data_service_supported
+            bit_8: user_facing_time_supported
+            # bits 9-15 reserved
+
+  - uuid: "2B34"
+    name: enhanced_blood_pressure_measurement
+    condition: "enhanced_service_instance_only"
+    access: ["indicate"]
+    payload_schema:
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: blood_pressure_measurement_units_kpa # 0 = mmHg, 1 = kPa
+            bit_1: time_stamp_present
+            bit_2: pulse_rate_present
+            bit_3: user_id_present
+            bit_4: measurement_status_present
+            bit_5: user_facing_time_present
+            bit_6: epoch_start_2000 # 0 = Jan 1 1900, 1 = Jan 1 2000
+            
+        - name: systolic
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_measurement_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+            
+        - name: diastolic
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_measurement_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+
+        - name: mean_arterial_pressure
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.blood_pressure_measurement_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+
+        - name: time_stamp
+          type: uint32
+          size_bytes: 4
+          unit: "seconds_since_epoch"
+          present_if: "flags.time_stamp_present == 1"
+          
+        - name: pulse_rate
+          type: medfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.pulse_rate_present == 1"
+          
+        - name: user_id
+          type: uint8
+          size_bytes: 1
+          present_if: "flags.user_id_present == 1"
+          
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            bit_0: body_movement_detected
+            bit_1: cuff_too_loose
+            bit_2: irregular_pulse_detected
+            bit_3_to_4:
+              name: pulse_rate_range_detection
+              values:
+                0b00: within_range
+                0b01: exceeds_upper_limit
+                0b10: less_than_lower_limit
+                0b11: reserved_for_future_use
+            bit_5: improper_measurement_position
+
+        - name: user_facing_time
+          type: uint32
+          size_bytes: 4
+          unit: "seconds_since_epoch"
+          present_if: "flags.user_facing_time_present == 1"
+
+  - uuid: "2B35"
+    name: enhanced_intermediate_cuff_pressure
+    condition: "enhanced_service_instance_only"
+    access: ["notify"]
+    payload_schema:
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: intermediate_cuff_pressure_measurement_units_kpa # 0 = mmHg, 1 = kPa
+            bit_1: time_stamp_present
+            bit_2: pulse_rate_present
+            bit_3: user_id_present
+            bit_4: measurement_status_present
+            bit_5: user_facing_time_present
+            bit_6: epoch_start_2000 # 0 = Jan 1 1900, 1 = Jan 1 2000
+            
+        - name: intermediate_cuff_pressure_value
+          type: medfloat16
+          size_bytes: 2
+          unit_logic:
+            if: "flags.intermediate_cuff_pressure_measurement_units_kpa == 0"
+            then: { unit: "mmHg" }
+            else: { unit: "kPa" }
+            
+        - name: time_stamp
+          type: uint32
+          size_bytes: 4
+          unit: "seconds_since_epoch"
+          present_if: "flags.time_stamp_present == 1"
+          
+        - name: pulse_rate
+          type: medfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.pulse_rate_present == 1"
+          
+        - name: user_id
+          type: uint8
+          size_bytes: 1
+          present_if: "flags.user_id_present == 1"
+          
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            bit_0: body_movement_detected
+            bit_1: cuff_too_loose
+            bit_2: irregular_pulse_detected
+            bit_3_to_4:
+              name: pulse_rate_range_detection
+              values:
+                0b00: within_range
+                0b01: exceeds_upper_limit
+                0b10: less_than_lower_limit
+                0b11: reserved_for_future_use
+            bit_5: improper_measurement_position
+
+        - name: user_facing_time
+          type: uint32
+          size_bytes: 4
+          unit: "seconds_since_epoch"
+          present_if: "flags.user_facing_time_present == 1"
+
+  - uuid: "2B36"
+    name: blood_pressure_record
+    condition: "C3_requires_racp"
+    access: ["notify"]
+    payload_schema:
+      fields:
+        - name: segmentation_header
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: first_segment
+            bit_1: last_segment
+            bit_2_to_7:
+              name: rolling_segment_counter
+              type: uint6
+              notes: "Integer 0-63, rolls over to 0 after 63"
+        - name: sequence_number
+          type: uint16
+          size_bytes: 2
+        - name: uuid
+          type: uint16
+          size_bytes: 2
+        - name: recorded_characteristic
+          type: determined_by_uuid
+          size_bytes: variable
+          uuid_dispatch:
+            0x2A35: blood_pressure_measurement
+            0x2A36: intermediate_cuff_pressure
+            0x2B34: enhanced_blood_pressure_measurement
+            0x2B35: enhanced_intermediate_cuff_pressure
+        - name: e2e_crc
+          type: uint16
+          size_bytes: "0 or 2"
+          notes: "Present if service supports E2E-CRC"
+
+  - uuid: "2A52"
+    name: record_access_control_point
+    condition: "C2_enhanced_service_instance_only"
+    access: ["indicate", "write"]
+    payload_schema:
+      fields:
+        - name: op_code
+          type: uint8
+          size_bytes: 1
+          values:
+            0x01: report_stored_records
+            0x02: delete_stored_records
+            0x03: abort_operation
+            0x04: report_number_of_stored_records
+            0x05: number_of_stored_records_response
+            0x06: response_code
+            0x07: combined_report
+            0x08: combined_report_response
+        - name: operator
+          type: uint8
+          size_bytes: 1
+          values:
+            0x00: null
+            0x01: all_records
+            0x02: less_than_or_equal_to
+            0x03: greater_than_or_equal_to
+            0x04: within_range_of_inclusive
+            0x05: first_record
+            0x06: last_record
+        - name: operand
+          type: bytes
+          size_bytes: "0-18"
+          notes: "Format is dependent on op_code and operator"
+      response_code_values:
+        0x01: success
+        0x02: op_code_not_supported
+        0x03: invalid_operator
+        0x04: operator_not_supported
+        0x05: invalid_operand
+        0x06: no_records_found
+        0x07: abort_unsuccessful
+        0x08: procedure_not_completed
+        0x09: operand_not_supported
+        0x0A: server_busy
