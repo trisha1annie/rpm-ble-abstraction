@@ -38,6 +38,7 @@ types:
       0x07FE: +INFINITY
       0x0802: -INFINITY
       0x0800: NRes      # not at this resolution
+      0x0801: reserved_for_future_use
 
 characteristics:
   - uuid: "2A35"
