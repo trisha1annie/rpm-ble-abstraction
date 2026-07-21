@@ -1,0 +1,20 @@
+name: "BleModuleA"
+displayName: "YK Oximeter"
+
+services:
+  - uuid: "cdeacd80-5235-4c07-8846-93a37ee6b86d"
+    characteristics:
+      - uuid: "cdeacd81-5235-4c07-8846-93a37ee6b86d"
+        name: "oxi"
+        properties: ["notify", "read"]
+        encoder:
+          type: "pulse-oximeter"
+
+  - uuid: "0000180a-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      - uuid: "00002a23-0000-1000-8000-00805f9b34fb"
+        name: "system-id"
+        properties: ["read"]
+        initial: "BleModuleA"
+        encoder:
+          type: "text"

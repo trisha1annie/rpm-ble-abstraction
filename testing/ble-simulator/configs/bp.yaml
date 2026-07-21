@@ -1,0 +1,35 @@
+name: "A&D_UA-651BLE"
+displayName: "A&D UA-651 Blood Pressure Monitor"
+
+services:
+  - uuid: "00001810-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      - uuid: "00002a35-0000-1000-8000-00805f9b34fb"
+        name: "bp"
+        properties: ["indicate"]
+        encoder:
+          type: "blood-pressure"
+        
+      - uuid: "00002a49-0000-1000-8000-00805f9b34fb"
+        name: "bp-feature"
+        properties: ["read"]
+        encoder:
+          type: "uint32"
+
+  - uuid: "0000180f-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      - uuid: "00002a19-0000-1000-8000-00805f9b34fb"
+        name: "battery-level"
+        properties: ["read", "notify"]
+        initial: "100"
+        encoder:
+          type: "battery-level"
+
+  - uuid: "0000180a-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      - uuid: "00002a23-0000-1000-8000-00805f9b34fb"
+        name: "system-id"
+        properties: ["read"]
+        initial: "A&D_UA-651BLE"
+        encoder:
+          type: "text"
