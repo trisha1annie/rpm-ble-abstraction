@@ -1,0 +1,13 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "ts,yaml",
+    "ignore": [
+        "src/**/*.spec.ts",
+        "dist"
+    ],
+    "exec": "tsx src/index.ts",
+    "signal": "SIGTERM",
+    "delay": 1000
+}
