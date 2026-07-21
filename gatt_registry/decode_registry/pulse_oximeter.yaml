@@ -1,29 +1,400 @@
 device_type: pulse_oximeter
 service:
   uuid: "1822"
-  name: "Pulse Oximeter Service"
+  name: pulse_oximeter
+
+types:
+  date_time:
+    description: "Date Time characteristic structure (org.bluetooth.characteristic.date_time)"
+    fields:
+      - name: year
+        type: uint16
+        size_bytes: 2
+        byte_order: little_endian
+      - name: month
+        type: uint8
+        size_bytes: 1
+        byte_order: little_endian
+      - name: day
+        type: uint8
+        size_bytes: 1
+        byte_order: little_endian
+      - name: hours
+        type: uint8
+        size_bytes: 1
+        byte_order: little_endian
+      - name: minutes
+        type: uint8
+        size_bytes: 1
+        byte_order: little_endian
+      - name: seconds
+        type: uint8
+        size_bytes: 1
+        byte_order: little_endian
+  sfloat16:
+    description: "IEEE 11073-20601 SFLOAT — 16-bit short float"
+    size_bytes: 2
+    byte_order: little_endian
+    bits:
+      exponent: "[15:12] — signed 4-bit (two's complement)"
+      mantissa: "[11:0]  — signed 12-bit (two's complement)"
+    decode: "value = mantissa × 10^exponent"
+    special_values:
+      0x07FF: NaN       # field unused or not present
+      0x07FE: +INFINITY
+      0x0802: -INFINITY
+      0x0800: NRes      # not at this resolution
+      0x0801: reserved_for_future_use
 
 characteristics:
   - uuid: "2A5E"
-    name: "PLX Spot-Check Measurement"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: plx_spot_check_measurement
+    condition: "C1_at_least_one_measurement_characteristic_required"
+    access: ["indicate"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          byte_order: little_endian
+          bitfield:
+            bit_0: timestamp_present
+            bit_1: measurement_status_present
+            bit_2: device_and_sensor_status_present
+            bit_3: pulse_amplitude_index_present
+            bit_4: device_clock_is_not_set
+            # bits 5-7 reserved
+            
+        - name: spo2pr_spot_check_spo2
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          
+        - name: spo2pr_spot_check_pr
+          type: sfloat16
+          size_bytes: 2
+          unit: "bpm"
+
+        - name: time_stamp
+          type: struct
+          ref: date_time
+          size_bytes: 7
+          present_if: "flags.timestamp_present == 1"
+
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          byte_order: little_endian
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            # bits 0-4 reserved
+            bit_5: measurement_ongoing
+            bit_6: early_estimated_data
+            bit_7: validated_data
+            bit_8: fully_qualified_data
+            bit_9: data_from_measurement_storage
+            bit_10: data_for_demonstration
+            bit_11: data_for_testing
+            bit_12: calibration_ongoing
+            bit_13: measurement_unavailable
+            bit_14: questionable_measurement_detected
+            bit_15: invalid_measurement_detected
+
+        - name: device_and_sensor_status
+          type: boolean[24]
+          size_bytes: 3
+          byte_order: little_endian
+          present_if: "flags.device_and_sensor_status_present == 1"
+          bitfield:
+            bit_0: extended_display_update_ongoing
+            bit_1: equipment_malfunction_detected
+            bit_2: signal_processing_irregularity_detected
+            bit_3: inadequate_signal_detected
+            bit_4: poor_signal_detected
+            bit_5: low_perfusion_detected
+            bit_6: erratic_signal_detected
+            bit_7: non_pulsatile_signal_detected
+            bit_8: questionable_pulse_detected
+            bit_9: signal_analysis_ongoing
+            bit_10: sensor_interference_detected
+            bit_11: sensor_unconnected_to_user
+            bit_12: unknown_sensor_connected
+            bit_13: sensor_displaced
+            bit_14: sensor_malfunctioning
+            bit_15: sensor_disconnected
+            # bits 16-23 reserved
+
+        - name: pulse_amplitude_index
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          present_if: "flags.pulse_amplitude_index_present == 1"
+    descriptors:
+      - uuid: "2902"
+        name: client_characteristic_configuration
+        type: uint16
+        size_bytes: 2
+        byte_order: little_endian
+        bitfield:
+          bit_0: notifications_enabled # This characteristic uses Indicate (bit_1), not Notify (bit_0)
+          bit_1: indications_enabled
 
   - uuid: "2A5F"
-    name: "PLX Continuous Measurement"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: plx_continuous_measurement
+    condition: "C1_at_least_one_measurement_characteristic_required"
+    access: ["notify"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          byte_order: little_endian
+          bitfield:
+            bit_0: spo2pr_fast_present
+            bit_1: spo2pr_slow_present
+            bit_2: measurement_status_present
+            bit_3: device_and_sensor_status_present
+            bit_4: pulse_amplitude_index_present
+            # bits 5-7 reserved
+            
+        - name: spo2pr_normal_spo2
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          always_present: true
+
+        - name: spo2pr_normal_pr
+          type: sfloat16
+          size_bytes: 2
+          unit: "bpm"
+          always_present: true
+
+        - name: spo2pr_fast_spo2
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          present_if: "flags.spo2pr_fast_present == 1"
+
+        - name: spo2pr_fast_pr
+          type: sfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.spo2pr_fast_present == 1"
+
+        - name: spo2pr_slow_spo2
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          present_if: "flags.spo2pr_slow_present == 1"
+
+        - name: spo2pr_slow_pr
+          type: sfloat16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.spo2pr_slow_present == 1"
+
+        - name: measurement_status
+          type: boolean[16]
+          size_bytes: 2
+          byte_order: little_endian
+          present_if: "flags.measurement_status_present == 1"
+          bitfield:
+            # bits 0-4 reserved
+            bit_5: measurement_ongoing
+            bit_6: early_estimated_data
+            bit_7: validated_data
+            bit_8: fully_qualified_data
+            bit_9: data_from_measurement_storage
+            bit_10: data_for_demonstration
+            bit_11: data_for_testing
+            bit_12: calibration_ongoing
+            bit_13: measurement_unavailable
+            bit_14: questionable_measurement_detected
+            bit_15: invalid_measurement_detected
+
+        - name: device_and_sensor_status
+          type: boolean[24]
+          size_bytes: 3
+          byte_order: little_endian
+          present_if: "flags.device_and_sensor_status_present == 1"
+          bitfield:
+            bit_0: extended_display_update_ongoing
+            bit_1: equipment_malfunction_detected
+            bit_2: signal_processing_irregularity_detected
+            bit_3: inadequate_signal_detected
+            bit_4: poor_signal_detected
+            bit_5: low_perfusion_detected
+            bit_6: erratic_signal_detected
+            bit_7: non_pulsatile_signal_detected
+            bit_8: questionable_pulse_detected
+            bit_9: signal_analysis_ongoing
+            bit_10: sensor_interference_detected
+            bit_11: sensor_unconnected_to_user
+            bit_12: unknown_sensor_connected
+            bit_13: sensor_displaced
+            bit_14: sensor_malfunctioning
+            bit_15: sensor_disconnected
+            # bits 16-23 reserved
+
+        - name: pulse_amplitude_index
+          type: sfloat16
+          size_bytes: 2
+          unit: "Percentage"
+          present_if: "flags.pulse_amplitude_index_present == 1"
+    descriptors:
+      - uuid: "2902"
+        name: client_characteristic_configuration
+        type: uint16
+        size_bytes: 2
+        byte_order: little_endian
+        bitfield:
+          bit_0: notifications_enabled
+          bit_1: indications_enabled
 
   - uuid: "2A60"
-    name: "PLX Features"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: plx_features
+    access: ["read", "indicate"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: supported_features
+          type: boolean[16]
+          size_bytes: 2
+          byte_order: little_endian
+          bitfield:
+            bit_0: measurement_status_support_present
+            bit_1: device_and_sensor_status_support_present
+            bit_2: measurement_storage_for_spot_check_supported
+            bit_3: timestamp_for_spot_check_supported
+            bit_4: spo2pr_fast_metric_supported
+            bit_5: spo2pr_slow_metric_supported
+            bit_6: pulse_amplitude_index_field_supported
+            bit_7: multiple_bonds_supported
+            # bits 8-15 reserved
+
+        - name: measurement_status_support
+          type: boolean[16]
+          size_bytes: 2
+          byte_order: little_endian
+          present_if: "supported_features.measurement_status_support_present == 1"
+          bitfield:
+            # bits 0-4 reserved
+            bit_5: measurement_ongoing_bit_supported
+            bit_6: early_estimated_data_bit_supported
+            bit_7: validated_data_bit_supported
+            bit_8: fully_qualified_data_bit_supported
+            bit_9: data_from_measurement_storage_bit_supported
+            bit_10: data_for_demonstration_bit_supported
+            bit_11: data_for_testing_bit_supported
+            bit_12: calibration_ongoing_bit_supported
+            bit_13: measurement_unavailable_bit_supported
+            bit_14: questionable_measurement_detected_bit_supported
+            bit_15: invalid_measurement_detected_bit_supported
+
+        - name: device_and_sensor_status_support
+          type: boolean[24]
+          size_bytes: 3
+          byte_order: little_endian
+          present_if: "supported_features.device_and_sensor_status_support_present == 1"
+          bitfield:
+            bit_0: extended_display_update_ongoing_bit_supported
+            bit_1: equipment_malfunction_detected_bit_supported
+            bit_2: signal_processing_irregularity_detected_bit_supported
+            bit_3: inadequate_signal_detected_bit_supported
+            bit_4: poor_signal_detected_bit_supported
+            bit_5: low_perfusion_detected_bit_supported
+            bit_6: erratic_signal_detected_bit_supported
+            bit_7: non_pulsatile_signal_detected_bit_supported
+            bit_8: questionable_pulse_detected_bit_supported
+            bit_9: signal_analysis_ongoing_bit_supported
+            bit_10: sensor_interference_detected_bit_supported
+            bit_11: sensor_unconnected_to_user_bit_supported
+            bit_12: unknown_sensor_connected_bit_supported
+            bit_13: sensor_displaced_bit_supported
+            bit_14: sensor_malfunctioning_bit_supported
+            bit_15: sensor_disconnected_bit_supported
+            # bits 16-23 reserved
+    descriptors:
+      - uuid: "2902"
+        name: client_characteristic_configuration
+        condition: "bonding_supported_and_features_can_change"
+        type: uint16
+        size_bytes: 2
+        byte_order: little_endian
+        bitfield:
+          bit_0: notifications_enabled
+          bit_1: indications_enabled
 
   - uuid: "2A52"
-    name: "Record Access Control Point"
-    # TODO: Fill in adopted characteristic field definitions from official Bluetooth SIG XML
+    name: record_access_control_point
+    condition: "measurement_storage_supported"
+    access: ["indicate", "write"]
     payload_schema:
-      placeholder: true
+      fields:
+        - name: op_code
+          type: uint8
+          size_bytes: 1
+          byte_order: little_endian
+          values:
+            0x01: report_stored_records
+            0x02: delete_stored_records
+            0x03: abort_operation
+            0x04: report_number_of_stored_records
+            0x05: number_of_stored_records_response
+            0x06: response_code
+        - name: operator
+          type: uint8
+          size_bytes: 1
+          byte_order: little_endian
+          values:
+            0x00: null
+            0x01: all_records
+            0x02: less_than_or_equal_to
+            0x03: greater_than_or_equal_to
+            0x04: within_range_of_inclusive
+            0x05: first_record
+            0x06: last_record
+        - name: operand
+          type: determined_by_op_code
+          size_bytes: variable
+          op_code_dispatch:
+            0x01: null
+            0x02: null
+            0x03: null
+            0x04: null
+            0x05:
+              type: uint16
+              size_bytes: 2
+              byte_order: little_endian
+            0x06:
+              type: struct
+              size_bytes: 2
+              fields:
+                - name: request_op_code
+                  type: uint8
+                  size_bytes: 1
+                  byte_order: little_endian
+                - name: response_code_value
+                  type: uint8
+                  size_bytes: 1
+                  byte_order: little_endian
+                  enum_ref: response_code_values
+      response_code_values:
+        0x01: success
+        0x02: op_code_not_supported
+        0x03: invalid_operator
+        0x04: operator_not_supported
+        0x05: invalid_operand
+        0x06: no_records_found
+        0x07: abort_unsuccessful
+        0x08: procedure_not_completed
+        0x09: operand_not_supported
+        0x0A: server_busy
+    descriptors:
+      - uuid: "2902"
+        name: client_characteristic_configuration
+        type: uint16
+        size_bytes: 2
+        byte_order: little_endian
+        bitfield:
+          bit_0: notifications_enabled
+          bit_1: indications_enabled
