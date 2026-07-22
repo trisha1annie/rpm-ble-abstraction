@@ -20,7 +20,7 @@ from ble_plugin.exceptions import (
     BleSubscriptionError,
     BleTransportError,
 )
-from ble_plugin.schema import normalize_uuid
+from ble_plugin.schema import normalise_uuid
 
 
 # ---------------------------------------------------------------------------
@@ -129,8 +129,8 @@ async def test_scanner_16bit_and_128bit_uuid_normalisation():
         devices = await scanner.scan(timeout_seconds=5.0)
 
     assert len(devices) == 1
-    assert normalize_uuid("181D") in devices[0].advertised_service_uuids
-    assert normalize_uuid("2a9d") in devices[0].advertised_service_uuids
+    assert normalise_uuid("181D") in devices[0].advertised_service_uuids
+    assert normalise_uuid("2a9d") in devices[0].advertised_service_uuids
 
 
 @pytest.mark.asyncio
@@ -199,8 +199,8 @@ async def test_scanner_service_data_keys_normalised_and_manufacturer_data_copied
         devices = await BleakScannerAdapter().scan(5.0)
 
     d = devices[0]
-    assert normalize_uuid("181D") in d.service_data
-    assert d.service_data[normalize_uuid("181D")] == b"\x01\x02"
+    assert normalise_uuid("181D") in d.service_data
+    assert d.service_data[normalise_uuid("181D")] == b"\x01\x02"
     assert d.manufacturer_data[0x0075] == b"\xAA\xBB"
 
 
@@ -221,7 +221,7 @@ async def test_gatt_service_uuid_is_normalised():
     client = BleakBleClient("DD:00:00:00:00:01", _backend=make_backend_with_services())
     await client.connect()
     gatt = await client.discover_gatt()
-    assert gatt.services[0].uuid == normalize_uuid("1810")
+    assert gatt.services[0].uuid == normalise_uuid("1810")
 
 
 @pytest.mark.asyncio
@@ -229,7 +229,7 @@ async def test_gatt_characteristic_uuid_is_normalised():
     client = BleakBleClient("DD:00:00:00:00:02", _backend=make_backend_with_services())
     await client.connect()
     gatt = await client.discover_gatt()
-    assert gatt.services[0].characteristics[0].uuid == normalize_uuid("2A35")
+    assert gatt.services[0].characteristics[0].uuid == normalise_uuid("2A35")
 
 
 @pytest.mark.asyncio
@@ -278,10 +278,10 @@ async def test_sync_callback_receives_normalised_uuid_and_exact_bytes():
 
     await client.subscribe("2A35", cb)
     raw = b"\x00\x78\x00\x50\x00\x5A\x00"
-    backend.fire(normalize_uuid("2A35"), raw)
+    backend.fire(normalise_uuid("2A35"), raw)
 
     assert len(received) == 1
-    assert received[0][0] == normalize_uuid("2A35")
+    assert received[0][0] == normalise_uuid("2A35")
     assert received[0][1] == raw
 
 
@@ -300,7 +300,7 @@ async def test_async_callback_is_awaited():
         awaited.append((uuid, data))
 
     await client.subscribe("2A35", async_cb)
-    backend.fire(normalize_uuid("2A35"), b"\x01\x02")
+    backend.fire(normalise_uuid("2A35"), b"\x01\x02")
 
     # Yield to the event loop so ensure_future can run the coroutine.
     await asyncio.sleep(0)
@@ -323,7 +323,7 @@ async def test_disconnect_clears_connection_and_subscription_state():
     await client.subscribe("2A35", lambda u, d: None)
 
     assert client.is_connected
-    assert normalize_uuid("2A35") in client._subscriptions
+    assert normalise_uuid("2A35") in client._subscriptions
 
     await client.disconnect()
 

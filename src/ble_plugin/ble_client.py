@@ -8,8 +8,7 @@ from typing import Protocol, runtime_checkable
 
 from .discovery_models import DiscoveredDevice, DiscoveredGatt
 
-# A notification callback receives the normalised characteristic UUID (lower-case
-# 128-bit string) and the raw payload bytes.  It may be synchronous or async.
+# Notification callback receives (normalised_uuid, raw_bytes).
 NotificationCallback = Callable[[str, bytes], Awaitable[None] | None]
 
 

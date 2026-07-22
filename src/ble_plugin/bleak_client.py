@@ -24,7 +24,7 @@ from .exceptions import (
     BleSubscriptionError,
     BleTransportError,
 )
-from .schema import normalize_uuid
+from .schema import normalise_uuid
 
 _log = logging.getLogger(__name__)
 
@@ -32,10 +32,10 @@ _log = logging.getLogger(__name__)
 def _device_from_adv(ble_device: BLEDevice, adv_data: AdvertisementData) -> DiscoveredDevice:
     """Convert a Bleak (BLEDevice, AdvertisementData) pair to a DiscoveredDevice."""
     service_uuids = frozenset(
-        normalize_uuid(u) for u in (adv_data.service_uuids or [])
+        normalise_uuid(u) for u in (adv_data.service_uuids or [])
     )
     service_data = {
-        normalize_uuid(k): bytes(v)
+        normalise_uuid(k): bytes(v)
         for k, v in (adv_data.service_data or {}).items()
     }
     # Copy mutable manufacturer_data into a plain dict with immutable values.
@@ -112,10 +112,7 @@ class BleakBleClient:
         # Test-only
         self._backend = _backend
         self._connected = False
-        # Tracks active subscriptions: normalised UUID -> Bleak callback wrapper.
         self._subscriptions: dict[str, Any] = {}
-
-    # --- BleClient protocol ---
 
     @property
     def device_id(self) -> str:
@@ -189,13 +186,13 @@ class BleakBleClient:
             for char in service.characteristics:
                 chars.append(
                     DiscoveredCharacteristic(
-                        uuid=normalize_uuid(str(char.uuid)),
+                        uuid=normalise_uuid(str(char.uuid)),
                         properties=frozenset(p.lower() for p in char.properties),
                     )
                 )
             discovered_services.append(
                 DiscoveredService(
-                    uuid=normalize_uuid(str(service.uuid)),
+                    uuid=normalise_uuid(str(service.uuid)),
                     characteristics=tuple(chars),
                 )
             )
@@ -227,7 +224,7 @@ class BleakBleClient:
                 operation="subscribe",
             )
 
-        normalised = normalize_uuid(characteristic_uuid)
+        normalised = normalise_uuid(characteristic_uuid)
 
         if normalised in self._subscriptions:
             raise BleSubscriptionError(
@@ -257,7 +254,7 @@ class BleakBleClient:
         Stop notifications/indications for ``characteristic_uuid``.
         does nothing if the UUID is not currently subscribed.
         """
-        normalised = normalize_uuid(characteristic_uuid)
+        normalised = normalise_uuid(characteristic_uuid)
         if normalised not in self._subscriptions:
             return
 

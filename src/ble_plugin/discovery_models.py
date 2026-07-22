@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from collections.abc import Mapping
 from typing import Optional
 
-from .schema import normalize_uuid
+from .schema import normalise_uuid
 
 
 @dataclass(frozen=True)

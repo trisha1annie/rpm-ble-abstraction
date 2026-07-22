@@ -31,7 +31,7 @@ import sys
 from datetime import datetime, timezone
 
 from ble_plugin.bleak_client import BleakBleClient, BleakScannerAdapter
-from ble_plugin.schema import normalize_uuid
+from ble_plugin.schema import normalise_uuid
 
 
 def _print_scan_results(devices) -> None:
@@ -76,7 +76,7 @@ async def _run(args: argparse.Namespace) -> int:
         if args.characteristic is None:
             return 0
 
-        normalised_char = normalize_uuid(args.characteristic)
+        normalised_char = normalise_uuid(args.characteristic)
         print(
             f"\nListening on {normalised_char} for {args.listen_seconds}s ..."
             "\n(raw hex, no decoding)"
