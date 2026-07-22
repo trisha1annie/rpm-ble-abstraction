@@ -1,0 +1,90 @@
+# Bluetooth Numbers Database
+![Logo](https://github.com/NordicSemiconductor/bluetooth-numbers-database/blob/master/header.png)
+
+![](https://github.com/NordicSemiconductor/bluetooth-numbers-database/workflows/Verify%20JSON%20Schemas/badge.svg)
+![](https://github.com/NordicSemiconductor/bluetooth-numbers-database/workflows/Check%20No%20Duplicates/badge.svg)
+[![GitHub stars](https://img.shields.io/github/stars/NordicSemiconductor/bluetooth-numbers-database)](https://github.com/NordicSemiconductor/bluetooth-numbers-database/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/NordicSemiconductor/bluetooth-numbers-database)](https://github.com/NordicSemiconductor/bluetooth-numbers-database/members)
+[![GitHub contributors](https://img.shields.io/github/contributors/NordicSemiconductor/bluetooth-numbers-database)](https://github.com/NordicSemiconductor/bluetooth-numbers-database/graphs/contributors)
+
+Welcome to the Bluetooth Numbers Database, an online repository containing metadata and definitions for a subset of [Bluetooth Assigned Numbers](https://www.bluetooth.com/specifications/assigned-numbers/). The goal of this project is to provide a shared open platform to access from a variety of platforms, such as web and mobile, with the intention of covering both GATT and industry specifications.
+
+**Bluetooth Numbers Database** is maintained by Nordic Semiconductor ASA.
+
+## Background
+
+During the development of various Bluetooth tools at Nordic, many of the assigned numbers from the Bluetooth specifications have been taken into use in different areas, which has lead to duplication of effort between the different tools. Hence it has been seen as beneficial to unify the work efforts by using a single, cohesive project representing a [Single Source of Truth](https://en.wikipedia.org/wiki/Single_source_of_truth).
+
+In addition to looking up officially defined numbers, it is common to extend the SIG-defined numbers with proprietary definitions that do not overlap with the standard. Such extension is permitted, but unless there is a place to check against whether your proposed UUID is used by others, we run the risk of having multiple uses for the same identifier.
+
+Bluetooth Numbers Database aims to solve this problem by providing a centralized database for querying UUIDs and Company identifiers. It is also open to anyone who would like to contribute.
+
+## Motivation
+
+The #1 question most Bluetooth developers will ask themselves when seeing this repo is a variation along the lines of `Don't need another library - I can write this in 5 minutes`. And whilst true, this does not cover the entire picture, because **it's everyone writing the same piece of code 5 minutes**, and then having to keep it up to date. That's the weight we're removing from you by using this community project. You don't need to worry about staying up to date regarding new Company IDs or GATT Attributes - just write code that pulls information from this repo every once in a while, and your apps will permanently be kept up to date. No need for reinventing the wheel.
+
+## Is This For Me? (Use Case Example)
+
+If you're involved with any software wherein Bluetooth UUIDs (GATT Attributes) or Manufacturer IDs need to be shown to the user in readable form, such as displaying their associated names or descriptions, this project is just for you. Pull the information you need directly from our `/v1/` endpoint folder, and you're good to go. Schema Definitions are just below, and you can be sure that the integrity of said files and schemas will be maintained through our automated tests.
+
+## Database Schemas
+
+For the 'v1' release of the database, two types of data structures are used: UUIDs and Company Identifiers. Both of them defined as [JSON Schemas](http://json-schema.org/learn/getting-started-step-by-step.html).
+
+### UUID Definitions
+UUID definitions specified in this project use the following data structure:
+
+| Field | Type | Description | Required |
+| ------|------|----------| --- |
+| uuid | `String` | **Unique Number** identifying the specific GATT Attribute. The number can be 16 or 128 bits UUID, and must comply with the format as defined in the [Bluetooth Core specification](https://www.bluetooth.com/specifications/bluetooth-core-specification/). Examples: "2902" for Client Characteristic Configuration Descriptor, "EF680100-9B35-4933-9B10-52FFA9740042" for Thingy Configuration Service.  | **Yes** |
+| name | `String` | The GATT Attribute's name. | **Yes** |
+| identifier | `String` | **Uniform Type Identifier**, a reverse-dot notation String used to set the context of the attribute. Apply the following naming convention to the identifier: (reverse domain URL).(attribute type).(generic use case).(specific use case). Example: `com.company.characteristic.example.configuration` | **Yes** |
+| source | `String` | The source of the UUID's definition. For example: all GATT Services, Characteristics and Descriptors have a `gss` specification value. Accordingly, Nordic-defined Services, Characteristics and/or Descriptors are marked with a `nordic` source value. | **Yes** |
+
+We have based the data structure above on the official listing of GATT Specifications as much as possible. You can check  [this listing of GATT Characteristics for reference](https://www.bluetooth.com/specifications/gatt/characteristics/). And as above, you can check our JSON Schema [here](https://github.com/NordicSemiconductor/bluetooth-numbers-database/blob/master/v1/gatt_schema.json).
+
+### Company Identifiers
+
+| Field | Type | Description | Required |
+| ------|------|----------| --- |
+| code  | `Integer` | Decimal value representing a Company as defined in the [official list of assigned Company Identifiers of the Bluetooth Specification](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). | **Yes** |
+| name | `String` | Name of the Company | **Yes** |
+
+This structure is a mirror of the official Bluetooth Specification. It is added as a convenience so that each application does not need to download and transfrom the online listings at the Bluetooth official website. Note that registration of new Company Identifiers must go through official channels at Bluetooth SIG.
+The full JSON Schema for the Company ID Data Structure can be found [here](https://github.com/NordicSemiconductor/bluetooth-numbers-database/blob/master/v1/company_schema.json).
+
+### GAP Appearance(s)
+
+GAP/GATT Appearence is defined in the Bluetooth SIG Specification, as both a Common Data Type 0x19 (see [Bluetooth Core Specification Supplement](https://www.bluetooth.com/specifications/specs/core-specification-supplement-9/)) and as a Characteristic which makes use of said data type. Bluetooth Appearance Data has a length of 2 bytes, set as follows:
+
+| Bits | Type | Description | Required |
+| -----|------|----------| --- |
+| 15-6 | `Integer` | Category | **Yes** |
+| 5-0 | `Integer` | Sub-Category | **Yes** |
+
+Appearance is a new addition to this database prompted by user [eriklins](https://github.com/eriklins), as a solution to his own issue ticket in this project. The result of which was [this initial Pull Request](https://github.com/NordicSemiconductor/bluetooth-numbers-database/pull/107). As of now it's not perfect, but it is a good starting point. The definition presented here is intended to mirror the Bluetooth SIG Assigned Numbers Document as defined and updated [here](https://www.bluetooth.com/wp-content/uploads/Files/Specification/Assigned_Numbers.pdf).
+
+#### Category Schema
+
+| Field | Type | Description | Required |
+| ------|------|----------| --- |
+| category | `Integer` | Decimal value identifying the Category, corresponding to reversed bits 15 to 6 of Appearance Data | **Yes** |
+| name | `String` | Name of the Category | **Yes** |
+| subcategory | `[Sub-Category]` | Array of Sub-Categories within an Appearance Category | **No** |
+
+#### Sub-Category Schema
+
+| Field | Type | Description | Required |
+| ------|------|----------| --- |
+| value | `Integer` | Decimal value identifying the sub-category within a parent category, corresponding to the reversed bits 5 to 0 from Appearance Data | **Yes** |
+| name | `String` | Name of the Sub-Category | **Yes** |
+
+## Special Thanks
+
+On behalf of Nordic and all the maintainers of this repo, we'd like to [thank all contributors](https://github.com/nordicsemi/bluetooth-numbers-database/graphs/contributors) for all of their contributions throughout these years. This project took off far more than any of us could've predicted.
+
+<a href="https://github.com/nordicsemi/bluetooth-numbers-database/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=nordicsemi/bluetooth-numbers-database" />
+</a>
+
+If you'd like to contribute yourself, please have a look at the [Rules & Contributions](https://github.com/nordicsemi/bluetooth-numbers-database?tab=contributing-ov-file) section. It's very easy to join!
