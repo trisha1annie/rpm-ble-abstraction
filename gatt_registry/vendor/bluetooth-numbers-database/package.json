@@ -1,0 +1,41 @@
+{
+  "name": "bluetooth-numbers-database",
+  "version": "1.0.4",
+  "description": "The Nordic Bluetooth UUID Database provides a simple mechanism through which you can keep an up-to-date listing of all the various Bluetooth Specification-related elements that are defined by our industry, such as Company IDs, Service UUIDs, Characteristic UUIDs and Descriptor UUIDs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node validate",
+    "verify": "node verify",
+    "fix-ids": "node decimal_ids",
+    "update-ids": "node update_ids"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NordicSemiconductor/bluetooth-numbers-database.git"
+  },
+  "keywords": [
+    "bluetooth",
+    "uuid",
+    "gatt",
+    "specification",
+    "json",
+    "database",
+    "nordic"
+  ],
+  "author": "mag@nordicsemi.no",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NordicSemiconductor/bluetooth-numbers-database/issues"
+  },
+  "homepage": "https://github.com/NordicSemiconductor/bluetooth-numbers-database#readme",
+  "files": [
+    "*.js",
+    "v*/*.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "ajv": "^6.12.6",
+    "yaml": "^2.8.0"
+  }
+}

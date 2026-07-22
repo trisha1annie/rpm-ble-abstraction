@@ -1,0 +1,181 @@
+mapping_id: pulse_oximeter_observation
+fhir_version: R5
+
+source:
+  device_type: pulse_oximeter
+  service_uuid: "181D"
+  characteristic_uuid: "2A9D"
+  characteristic_name: plx_spot_check_measurement
+
+target:
+  resource_type: Observation
+
+  profile:
+    - "http://hl7.org/fhir/StructureDefinition/oxygensat"
+
+  fixed:
+    status: final
+
+    category:
+      - coding:
+          - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+            code: "vital-signs"
+            display: "Vital Signs"
+
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "29463-7"
+          display: "Body weight"
+
+      text: "Body weight"
+
+  dynamic:
+    identifier:
+      generate: true
+      system: "urn:ietf:rfc:3986"
+      format: "urn:uuid:{reading_uuid}"
+
+    subject:
+      provided_by: rpm_application
+      output:
+        reference: "Patient/{patient_id}"
+
+    effectiveDateTime:
+      source: time_stamp
+      fallback: gateway_received_time
+
+  value:
+    type: Quantity
+    path: valueQuantity
+    value_source: weight
+    unit_source: lags.measurement_units_imperial
+
+      unit_mapping:
+        0:
+          unit: "kg"
+          system: "http://unitsofmeasure.org"
+          code: "kg"
+
+        1:
+          unit: "lb"
+          system: "http://unitsofmeasure.org"
+          code: "lb"
+
+quality_mapping:
+  measurement_status:
+    source: measurement_status
+    create_if: "flags.measurement_status_present == 1"
+
+    fields:
+      measurement_ongoing:
+        target: note
+        create_if: "measurement_status.measurement_ongoing == true"
+        text: "The pulse oximetry measurement was still ongoing."
+
+      early_estimated_data:
+        target: note
+        create_if: "measurement_status.early_estimated_data == true"
+        text: "The result contains early estimated measurement data."
+
+      validated_data:
+        target: note
+        create_if: "measurement_status.validated_data == true"
+        text: "The device marked the measurement data as validated."
+
+      fully_qualified_data:
+        target: note
+        create_if: "measurement_status.fully_qualified_data == true"
+        text: "The device marked the measurement data as fully qualified."
+
+      data_from_measurement_storage:
+        target: note
+        create_if: "measurement_status.data_from_measurement_storage == true"
+        text: "The result was retrieved from device measurement storage."
+
+      data_for_demonstration:
+        target: note
+        create_if: "measurement_status.data_for_demonstration == true"
+        text: "The device marked this result as demonstration data."
+
+      data_for_testing:
+        target: note
+        create_if: "measurement_status.data_for_testing == true"
+        text: "The device marked this result as testing data."
+
+      calibration_ongoing:
+        target: note
+        create_if: "measurement_status.calibration_ongoing == true"
+        text: "Device calibration was ongoing during the measurement."
+
+      questionable_measurement_detected:
+        target: note
+        create_if: "measurement_status.questionable_measurement_detected == true"
+        text: "The device detected a questionable measurement."
+
+  device_and_sensor_status:
+    source: device_and_sensor_status
+    create_if: "flags.device_and_sensor_status_present == 1"
+
+    fields:
+      equipment_malfunction_detected:
+        target: note
+        create_if: "device_and_sensor_status.equipment_malfunction_detected == true"
+        text: "The device detected an equipment malfunction."
+
+      inadequate_signal_detected:
+        target: note
+        create_if: "device_and_sensor_status.inadequate_signal_detected == true"
+        text: "The device detected an inadequate signal."
+
+      poor_signal_detected:
+        target: note
+        create_if: "device_and_sensor_status.poor_signal_detected == true"
+        text: "The device detected poor signal quality."
+
+      low_perfusion_detected:
+        target: note
+        create_if: "device_and_sensor_status.low_perfusion_detected == true"
+        text: "The device detected low perfusion."
+
+      sensor_unconnected_to_user:
+        target: note
+        create_if: "device_and_sensor_status.sensor_unconnected_to_user == true"
+        text: "The sensor was not connected to the user."
+
+      sensor_displaced:
+        target: note
+        create_if: "device_and_sensor_status.sensor_displaced == true"
+        text: "The sensor was displaced."
+
+      sensor_malfunctioning:
+        target: note
+        create_if: "device_and_sensor_status.sensor_malfunctioning == true"
+        text: "The sensor was malfunctioning."
+
+      sensor_disconnected:
+        target: note
+        create_if: "device_and_sensor_status.sensor_disconnected == true"
+        text: "The sensor was disconnected."
+
+validation:
+  required_source_fields:
+    - spo2pr_spot_check_spo2
+    - spo2pr_spot_check_pr
+
+  rules:
+    - name: reject_nan_spo2
+      condition: "is_nan(spo2pr_spot_check_spo2)"
+      action: reject
+
+    - name: reject_nan_pulse_rate
+      condition: "is_nan(spo2pr_spot_check_pr)"
+      action: reject
+
+    - name: reject_invalid_measurement
+      condition: "measurement_status.invalid_measurement_detected == true"
+      action: reject
+
+    - name: reject_unavailable_measurement
+      condition: "measurement_status.measurement_unavailable == true"
+      action: reject
