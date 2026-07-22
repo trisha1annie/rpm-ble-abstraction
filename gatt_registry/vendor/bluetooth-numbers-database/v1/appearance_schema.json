@@ -1,0 +1,26 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "subcategory": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "integer" },
+            "name": { "type": "string" }
+          },
+          "required": ["value", "name"]
+        }
+      }
+    },
+    "required": ["category", "name"]
+  }
+}
