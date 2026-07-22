@@ -102,8 +102,7 @@ components:
   - name: mean_arterial_pressure
     source: mean_arterial_pressure
 
-    # Required by the BLE 2A35 decoder schema,
-    # but optional as a supplementary FHIR BP component.
+    # Required by the BLE decoder schema but optional as a supplementary FHIR BP component.
     required_from_decoder: true
     required_by_fhir: false
 
