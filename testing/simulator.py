@@ -48,10 +48,8 @@ class Simulator:
 
 
 if __name__ == "__main__":
-
-    client = Simulator(
-        "/Users/trishakuruvilla/Desktop/uni/thesis/rpm-ble-abstraction/testing/ble-simulator"
-    )
+    simulator_path = Path(__file__).parent / "ble-simulator"
+    client = Simulator(simulator_path)
 
     client.start_simulator("./configs/oxi.yaml")
 
