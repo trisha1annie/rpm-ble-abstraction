@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "bdo": "https://example.org/bdo#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+
+  "@id": "urn:bdo:yk-oximeter-payload",
+  "@type": "bdo:BinaryDataSchema",
+
+  "bdo:byteLength": 10,
+  "bdo:byteOrder": "littleEndian",
+
+  "bdo:field": [
+    {
+      "@id": "urn:bdo:yk-oximeter-payload#flag",
+      "@type": "bdo:IntegerField",
+      "bdo:name": "flag",
+      "bdo:byteOffset": 0,
+      "bdo:byteLength": 1,
+      "bdo:dataType": "xsd:unsignedByte",
+      "bdo:expectedValue": 129
+    },
+    {
+      "@id": "urn:bdo:yk-oximeter-payload#spo2",
+      "@type": "bdo:IntegerField",
+      "bdo:name": "spo2",
+      "bdo:byteOffset": 1,
+      "bdo:byteLength": 1,
+      "bdo:dataType": "xsd:unsignedByte",
+      "bdo:minimum": 0,
+      "bdo:maximum": 100,
+      "bdo:unit": "%"
+    },
+    {
+      "@id": "urn:bdo:yk-oximeter-payload#pulse-rate",
+      "@type": "bdo:IntegerField",
+      "bdo:name": "pulse_rate",
+      "bdo:byteOffset": 2,
+      "bdo:byteLength": 1,
+      "bdo:dataType": "xsd:unsignedByte",
+      "bdo:unit": "bpm"
+    },
+    {
+      "@id": "urn:bdo:yk-oximeter-payload#reserved",
+      "@type": "bdo:ByteSequenceField",
+      "bdo:name": "reserved",
+      "bdo:byteOffset": 3,
+      "bdo:byteLength": 7,
+      "bdo:expectedValue": "00000000000000"
+    }
+  ]
+}
