@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "ble": "https://example.org/ble#",
+      "bdo": "https://example.org/bdo#"
+    }
+  ],
+
+  "id": "urn:dev:yk-oximeter",
+  "title": "YK Oximeter",
+
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+
+  "security": [
+    "nosec_sc"
+  ],
+
+  "properties": {
+    "measurement": {
+      "title": "Pulse Oximeter Measurement",
+      "type": "object",
+      "readOnly": true,
+      "observable": true,
+
+      "forms": [
+        {
+          "href": "gatt://cdeacd80-5235-4c07-8846-93a37ee6b86d/cdeacd81-5235-4c07-8846-93a37ee6b86d",
+          "op": [
+            "readproperty",
+            "observeproperty"
+          ],
+          "contentType": "application/octet-stream",
+
+          "ble:serviceUuid":
+            "cdeacd80-5235-4c07-8846-93a37ee6b86d",
+
+          "ble:characteristicUuid":
+            "cdeacd81-5235-4c07-8846-93a37ee6b86d",
+
+          "bdo:payloadSpecification":
+            "yk-oximeter-payload.jsonld"
+        }
+      ]
+    }
+  }
+}

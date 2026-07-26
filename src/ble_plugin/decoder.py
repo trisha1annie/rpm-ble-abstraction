@@ -219,7 +219,14 @@ def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: L
 
 def decode(schema: LoadedDeviceSchema, characteristic_uuid: str, payload: bytes) -> DecodedPayload:
     """Decode binary payload bytes into structured values based on characteristic schema."""
-    char_schema = next((c for c in schema.characteristics if c.uuid == characteristic_uuid), None)
+    char_schema = next(
+        (
+            c
+            for c in schema.characteristics
+            if c.uuid.lower() == characteristic_uuid.lower()
+        ),
+        None,
+    )
     if not char_schema:
         raise ValueError(f"Characteristic {characteristic_uuid} not found in schema")
         

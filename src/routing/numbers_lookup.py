@@ -1,12 +1,10 @@
-"""Lookup utilities for the vendored Bluetooth Numbers Database."""
-
-from __future__ import annotations
+"""Lookup utilities from the standard Bluetooth Numbers Database."""
 
 import json
 from pathlib import Path
 from typing import Any
 
-from routing.uuid_normalizer import normalize_uuid
+from .uuid_normalizer import normalize_uuid
 
 
 class BluetoothNumbersLookup:
@@ -60,15 +58,15 @@ class BluetoothNumbersLookup:
         return index
 
     def get_service(self, uuid: str) -> dict[str, Any] | None:
-        """Return service metadata, or None if the UUID is unknown."""
+        """Return respective service metadata, or None if the UUID is unknown."""
         return self._services.get(normalize_uuid(uuid))
 
     def get_characteristic(self, uuid: str) -> dict[str, Any] | None:
-        """Return characteristic metadata, or None if unknown."""
+        """Return respective characteristic metadata, or None if unknown."""
         return self._characteristics.get(normalize_uuid(uuid))
 
     def has_service(self, uuid: str) -> bool:
-        """Return True if the service exists anywhere in the database."""
+        """Return True if the service exists in the database."""
         return self.get_service(uuid) is not None
 
     def has_characteristic(self, uuid: str) -> bool:
@@ -98,21 +96,8 @@ class BluetoothNumbersLookup:
         service_uuid: str,
         characteristic_uuid: str,
     ) -> bool:
-        """Return True if both UUIDs are Bluetooth SIG-defined."""
+        """Return True if both service and characteristic UUIDs are Bluetooth SIG-defined."""
         return (
             self.is_sig_service(service_uuid)
             and self.is_sig_characteristic(characteristic_uuid)
         )
-
-
-if __name__ == "__main__":
-    lookup = BluetoothNumbersLookup()
-
-    print("Blood Pressure service:")
-    print(lookup.get_service("1810"))
-
-    print("\nBlood Pressure Measurement characteristic:")
-    print(lookup.get_characteristic("2A35"))
-
-    print("\nSIG-defined pair:")
-    print(lookup.is_sig_pair("1810", "2A35"))
