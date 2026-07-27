@@ -11,7 +11,12 @@ from bleak import BleakClient, BleakScanner
 from bleak.backends.device import BLEDevice
 from bleak.backends.scanner import AdvertisementData
 
-from .ble_client import BleClient, BleScanner, NotificationCallback
+from .ble_client import (
+    BleClient,
+    BleScanner,
+    DisconnectCallback,
+    NotificationCallback,
+)
 from .discovery_models import (
     DiscoveredCharacteristic,
     DiscoveredDevice,
@@ -113,6 +118,7 @@ class BleakBleClient:
         self._backend = _backend
         self._connected = False
         self._subscriptions: dict[str, Any] = {}
+        self._disconnected_callback: DisconnectCallback | None = None
 
     @property
     def device_id(self) -> str:
@@ -122,10 +128,19 @@ class BleakBleClient:
     def is_connected(self) -> bool:
         return self._connected
 
+    def set_disconnected_callback(
+        self,
+        callback: DisconnectCallback | None,
+    ) -> None:
+        self._disconnected_callback = callback
+
     async def connect(self) -> None:
         """Connect to the device. Wraps Bleak errors as ``BleTransportError``."""
         if self._backend is None:
-            self._backend = BleakClient(self._device_id)
+            self._backend = BleakClient(
+                self._device_id,
+                disconnected_callback=self._handle_backend_disconnect,
+            )
         try:
             await self._backend.connect()
             self._connected = True
@@ -137,6 +152,17 @@ class BleakBleClient:
                 device_id=self._device_id,
                 operation="connect",
             ) from exc
+
+    def _handle_backend_disconnect(self, _backend: BleakClient) -> None:
+        """Mirror local state after a transport-originated disconnect."""
+        self._connected = False
+        self._subscriptions.clear()
+        callback = self._disconnected_callback
+        if callback is None:
+            return
+        result = callback()
+        if asyncio.iscoroutine(result):
+            asyncio.ensure_future(result)
 
     async def disconnect(self) -> None:
         """
