@@ -331,6 +331,23 @@ async def test_disconnect_clears_connection_and_subscription_state():
     assert client._subscriptions == {}
 
 
+def test_unexpected_disconnect_clears_state_and_notifies_callback():
+    backend = FakeBleakBackend(services=[
+        FakeService("1810", [FakeChar("2A35", ["indicate"])]),
+    ])
+    client = BleakBleClient("FF:00:00:00:00:04", _backend=backend)
+    client._connected = True
+    client._subscriptions[normalise_uuid("2A35")] = lambda u, d: None
+    notified = []
+    client.set_disconnected_callback(lambda: notified.append(True))
+
+    client._handle_backend_disconnect(backend)
+
+    assert not client.is_connected
+    assert client._subscriptions == {}
+    assert notified == [True]
+
+
 @pytest.mark.asyncio
 async def test_backend_connect_error_wrapped_as_ble_transport_error():
     backend = FakeBleakBackend(connect_raises=OSError("adapter off"))
