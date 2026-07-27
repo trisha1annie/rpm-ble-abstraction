@@ -23,7 +23,7 @@ def test_uuid_normalisation():
 
 def test_load_all_registry_files():
     base_dir = os.path.join(
-        os.path.dirname(__file__), "..", "gatt_registry", "decode_registry"
+        os.path.dirname(__file__), "..", "src", "gatt_registry", "decode_registry"
     )
     
     bp_path = os.path.join(base_dir, "blood_pressure.yaml")

@@ -141,7 +141,9 @@ def test_invalid_uuid():
 # --- Real Schema Decoding Tests ---
 
 def get_real_schema(filename):
-    base_dir = os.path.join(os.path.dirname(__file__), "..", "gatt_registry", "decode_registry")
+    base_dir = os.path.join(
+        os.path.dirname(__file__), "..", "src", "gatt_registry", "decode_registry"
+    )
     return load_schema(os.path.join(base_dir, filename))
 
 

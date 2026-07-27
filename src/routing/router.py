@@ -5,10 +5,10 @@ from pathlib import Path
 from .uuid_normalizer import normalize_uuid
 from .numbers_lookup import BluetoothNumbersLookup
 
-from ..ble_plugin.yaml_loader import load_schema
-from ..ble_plugin.decoder import decode
-from ..ble_plugin.models import DecodedPayload
-from ..ble_plugin.exceptions import SchemaLoadError
+from ble_plugin.decoder import decode
+from ble_plugin.exceptions import SchemaLoadError
+from ble_plugin.models import DecodedPayload
+from ble_plugin.yaml_loader import load_schema
 
 BLUETOOTH_BASE_UUID_SUFFIX = "-0000-1000-8000-00805F9B34FB"
 

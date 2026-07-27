@@ -10,6 +10,8 @@ from .discovery_models import DiscoveredDevice, DiscoveredGatt
 
 # Notification callback receives (normalised_uuid, raw_bytes).
 NotificationCallback = Callable[[str, bytes], Awaitable[None] | None]
+# Disconnect callback is invoked after an unexpected transport disconnect.
+DisconnectCallback = Callable[[], Awaitable[None] | None]
 
 
 @runtime_checkable
@@ -85,4 +87,11 @@ class BleClient(Protocol):
         """
         Stop notifications or indications for ``characteristic_uuid``.
         """
+        ...
+
+    def set_disconnected_callback(
+        self,
+        callback: DisconnectCallback | None,
+    ) -> None:
+        """Set the callback used for an unexpected transport disconnect."""
         ...
