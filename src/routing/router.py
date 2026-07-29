@@ -51,7 +51,7 @@ def router(
 
     if not schema_directory.is_dir():
         raise RoutingError(
-            f"Schema directory does not exist: {schema_directory}"
+            f"The driver does not support this device. Schema directory does not exist: {schema_directory}"
         )
 
     for schema_path in schema_directory.rglob("*.yaml"):
