@@ -193,6 +193,10 @@ def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: L
         flags = parsed_flags
     elif field_schema.type_name in ("medfloat16", "sfloat16"):
         val, sz = _parse_sfloat16(data, offset, byte_order)
+    elif field_schema.type_name == "bytes":
+        val = data[
+            offset : offset + size_bytes
+        ].hex()
     elif field_schema.type_name == "struct":
         if not field_schema.ref or field_schema.ref not in schema.types:
             raise UnsupportedSchemaFeatureError(f"Missing or unknown struct ref: {field_schema.ref}", schema_file=schema.source_path, characteristic_uuid=char_uuid, field_name=field_schema.name)

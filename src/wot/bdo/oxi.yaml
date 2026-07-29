@@ -1,6 +1,6 @@
 {
   "@context": {
-    "bdo": "https://example.org/bdo#",
+    "bdo": "https://w3id.org/rpm-ble/bdo#",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
 
