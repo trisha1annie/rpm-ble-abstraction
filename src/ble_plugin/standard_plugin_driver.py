@@ -29,6 +29,12 @@ def _decode_notification(
     return router(service_uuid, characteristic_uuid, payload)
 
 
+def _supports_route(service_uuid: str, characteristic_uuid: str) -> bool:
+    from routing.router import supports_route
+
+    return supports_route(service_uuid, characteristic_uuid)
+
+
 class StandardPluginDriver:
     def __init__(
         self,
@@ -64,10 +70,16 @@ class StandardPluginDriver:
             gatt = await self._client.discover_gatt()
             for service in gatt.services:
                 service_uuid = normalise_uuid(service.uuid)
+                if service_uuid in _SKIP_SERVICE_UUIDS:
+                    continue
                 for characteristic in service.characteristics:
                     if not {"notify", "indicate"}.intersection(characteristic.properties):
                         continue
                     characteristic_uuid = normalise_uuid(characteristic.uuid)
+                    if characteristic_uuid in _SKIP_CHARACTERISTIC_UUIDS:
+                        continue
+                    if not _supports_route(service_uuid, characteristic_uuid):
+                        continue
                     if characteristic_uuid in self._subscriptions:
                         raise DriverLifecycleError(
                             "A notification characteristic UUID occurs in multiple "
