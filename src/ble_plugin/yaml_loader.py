@@ -89,14 +89,24 @@ def _load_types(types_dict: dict, source_path: str) -> dict[str, TypeDefinition]
 def load_schema(file_path: str) -> LoadedDeviceSchema:
     """Load and validate a YAML device schema."""
     if not os.path.exists(file_path):
-        raise SchemaLoadError(f"File not found: {file_path}", file_path)
-        
+        raise SchemaLoadError(
+            f"File not found: {file_path}",
+            file_path,
+        )
+
     with open(file_path, "r", encoding="utf-8") as f:
         try:
             data = yaml.safe_load(f)
         except yaml.YAMLError as e:
-            raise SchemaLoadError(f"YAML parsing error: {e}", file_path)
-            
+            raise SchemaLoadError(
+                f"YAML parsing error: {e}",
+                file_path,
+            ) from e
+
+    return _build_loaded_schema(data, file_path)
+
+
+def  _build_loaded_schema(data: dict, file_path:str):  
     if not isinstance(data, dict):
         raise SchemaLoadError("Schema root must be a dictionary", file_path)
         

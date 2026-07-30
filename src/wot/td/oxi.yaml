@@ -2,12 +2,12 @@
   "@context": [
     "https://www.w3.org/2022/wot/td/v1.1",
     {
-      "ble": "https://example.org/ble#",
-      "bdo": "https://example.org/bdo#"
+      "ble": "https://w3id.org/rpm-ble/ble#",
+      "bdo": "https://w3id.org/rpm-ble/bdo#"
     }
   ],
 
-  "id": "urn:dev:yk-oximeter",
+  "@id": "urn:dev:yk-oximeter",
   "title": "YK Oximeter",
 
   "securityDefinitions": {
@@ -43,7 +43,7 @@
             "cdeacd81-5235-4c07-8846-93a37ee6b86d",
 
           "bdo:payloadSpecification":
-            "yk-oximeter-payload.jsonld"
+            "../bdo/oxi.yaml"
         }
       ]
     }
