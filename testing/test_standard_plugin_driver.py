@@ -125,6 +125,25 @@ def make_single_measurement_gatt(
     )
 
 
+def make_gatt_with_service_changed() -> DiscoveredGatt:
+    base = make_gatt()
+    return DiscoveredGatt(
+        device_id=base.device_id,
+        services=base.services
+        + (
+            DiscoveredService(
+                uuid=normalise_uuid("1801"),
+                characteristics=(
+                    DiscoveredCharacteristic(
+                        uuid=normalise_uuid("2A05"),
+                        properties=frozenset({"indicate"}),
+                    ),
+                ),
+            ),
+        ),
+    )
+
+
 def test_driver_subscribes_to_all_notifiable_characteristics_and_emits(
     monkeypatch,
 ):
@@ -148,10 +167,8 @@ def test_driver_subscribes_to_all_notifiable_characteristics_and_emits(
         await client.fire("2A9D", b"\x00\xFC\x3A")
 
         assert isinstance(driver, PluginDriver)
-        assert driver.subscribed_characteristics == {
-            normalise_uuid("2A9D"),
-            normalise_uuid("2A19"),
-        }
+        assert driver.subscribed_characteristics == {normalise_uuid("2A9D")}
+        assert normalise_uuid("2A19") not in client.subscriptions
         assert len(measurements) == 1
         assert measurements[0].service_uuid == normalise_uuid("181D")
         assert measurements[0].characteristic_uuid == normalise_uuid("2A9D")
@@ -161,6 +178,19 @@ def test_driver_subscribes_to_all_notifiable_characteristics_and_emits(
             normalise_uuid("2A9D"),
             b"\x00\xFC\x3A",
         )
+
+    asyncio.run(exercise())
+
+
+def test_driver_skips_service_changed_characteristic():
+    async def exercise():
+        client = FakeBleClient(make_gatt_with_service_changed())
+        driver = StandardPluginDriver(client)
+
+        await driver.start(lambda measurement: None)
+
+        assert driver.subscribed_characteristics == {normalise_uuid("2A9D")}
+        assert normalise_uuid("2A05") not in client.subscriptions
 
     asyncio.run(exercise())
 
@@ -175,7 +205,7 @@ def test_driver_stop_unsubscribes_and_disconnects():
 
         assert not driver.is_started
         assert not client.connected
-        assert client.unsubscribed == [normalise_uuid("2A9D"), normalise_uuid("2A19")]
+        assert client.unsubscribed == [normalise_uuid("2A9D")]
         assert driver.subscribed_characteristics == frozenset()
 
     asyncio.run(exercise())
