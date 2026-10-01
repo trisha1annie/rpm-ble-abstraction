@@ -79,3 +79,24 @@ class BleDiscoveryError(BleTransportError):
 class BleSubscriptionError(BleTransportError):
     """Raised when starting or stopping a notification/indication subscription fails."""
     pass
+
+class InvalidPayloadError(SchemaDrivenBleError):
+    """Raised when a decoded payload is unusable because required fields missing."""
+    def __init__(self, message: str, schema_file: str = None, characteristic_uuid: str = None, field_name: str = None, payload_length: int = None, byte_offset: int = None):
+        self.schema_file = schema_file
+        self.characteristic_uuid = characteristic_uuid
+        self.field_name = field_name
+        self.payload_length = payload_length
+        self.byte_offset = byte_offset
+        
+        ctx = []
+        if schema_file: ctx.append(f"file: {schema_file}")
+        if characteristic_uuid: ctx.append(f"char: {characteristic_uuid}")
+        if field_name: ctx.append(f"field: {field_name}")
+        if payload_length is not None: ctx.append(f"len: {payload_length}")
+        if byte_offset is not None: ctx.append(f"offset: {byte_offset}")
+        
+        ctx_str = ", ".join(ctx)
+        full_msg = f"{message} [{ctx_str}]" if ctx else message
+        super().__init__(full_msg)
+

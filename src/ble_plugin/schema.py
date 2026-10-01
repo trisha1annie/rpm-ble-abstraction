@@ -53,6 +53,7 @@ class FieldSchema:
     expected_value: Any = None
     notes: Optional[str] = None
     ref: Optional[str] = None  # Reference to a custom TypeDefinition
+    required: bool = False
 
 
 @dataclass(frozen=True)

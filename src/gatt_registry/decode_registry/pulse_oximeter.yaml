@@ -69,6 +69,7 @@ characteristics:
           type: sfloat16
           size_bytes: 2
           unit: "Percentage"
+          required: true
           
         - name: spo2pr_spot_check_pr
           type: sfloat16
@@ -162,6 +163,7 @@ characteristics:
           size_bytes: 2
           unit: "Percentage"
           always_present: true
+          required: true
 
         - name: spo2pr_normal_pr
           type: sfloat16

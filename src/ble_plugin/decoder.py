@@ -6,7 +6,8 @@ from .schema import (
     LoadedDeviceSchema, CharacteristicSchema, FieldSchema, TypeDefinition, PayloadSchema
 )
 from .models import DecodedPayload, DecodedValue, SfloatSpecialValue
-from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError
+from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, InvalidPayloadError
+from fault_handling.quality_handler import payload_quality
 
 
 def _evaluate_condition(condition: str, context_values: dict[str, Any], context_flags: dict[str, Any]) -> bool:
@@ -240,10 +241,15 @@ def decode(schema: LoadedDeviceSchema, characteristic_uuid: str, payload: bytes)
 
     values = {}
     status_flags = {}
-    
+    quality_flags = {}
     offset = 0
     for field_schema in payload_schema.fields:
-        val, sz, flags = _decode_field(field_schema, payload, offset, schema, characteristic_uuid, values, status_flags)
+        try:
+            val, sz, flags = _decode_field(field_schema, payload, offset, schema, characteristic_uuid, values, status_flags)
+        except PayloadDecodeError: 
+            quality_flags["truncated_payload"] = True
+            break
+
         if val is not None:
             if field_schema.type_name.startswith("boolean["):
                 status_flags.update(flags)
@@ -284,17 +290,21 @@ def decode(schema: LoadedDeviceSchema, characteristic_uuid: str, payload: bytes)
                 
             offset += sz
 
-    if offset < len(payload):
-        raise PayloadDecodeError(
-            f"Payload has unexpected trailing bytes (decoded {offset} bytes, payload length {len(payload)})",
-            schema_file=schema.source_path,
-            characteristic_uuid=characteristic_uuid,
-            payload_length=len(payload),
-            byte_offset=offset
-        )
+    if offset < len(payload) and not quality_flags.get("truncated_payload", False):
+        quality_flags["trailing_bytes"] = True
 
-    return DecodedPayload(
+    decoded_payload = DecodedPayload(
         values=values,
-        status_flags=status_flags
+        status_flags=status_flags,
+        quality_flags = quality_flags
     )
 
+    payload_validity = payload_quality(decoded_payload, payload_schema)
+    if payload_validity[0] == "INVALID":
+        raise InvalidPayloadError(
+            f"Payload is missing required fields: {payload_validity[1]}",
+            schema_file=schema.source_path,
+            characteristic_uuid=characteristic_uuid,
+            payload_length=len(payload)
+        )
+    return decoded_payload

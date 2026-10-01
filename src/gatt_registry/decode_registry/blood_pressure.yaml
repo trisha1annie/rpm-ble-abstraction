@@ -64,6 +64,7 @@ characteristics:
             if: "flags.blood_pressure_units_kpa == 0"
             then: { unit: "mmHg" }
             else: { unit: "kPa" }
+          required: true
             
         - name: diastolic
           type: medfloat16
@@ -72,6 +73,7 @@ characteristics:
             if: "flags.blood_pressure_units_kpa == 0"
             then: { unit: "mmHg" }
             else: { unit: "kPa" }
+          required: true
 
         - name: mean_arterial_pressure
           type: medfloat16
@@ -234,6 +236,7 @@ characteristics:
             if: "flags.blood_pressure_measurement_units_kpa == 0"
             then: { unit: "mmHg" }
             else: { unit: "kPa" }
+          required: true
             
         - name: diastolic
           type: medfloat16
@@ -242,6 +245,7 @@ characteristics:
             if: "flags.blood_pressure_measurement_units_kpa == 0"
             then: { unit: "mmHg" }
             else: { unit: "kPa" }
+          required: true
 
         - name: mean_arterial_pressure
           type: medfloat16
