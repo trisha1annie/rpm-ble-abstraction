@@ -1,5 +1,7 @@
 mapping_id: pulse_oximeter_observation
 fhir_version: R5
+minimum_outputs: 1
+primary_required: false
 
 source:
   device_type: pulse_oximeter
@@ -55,6 +57,7 @@ target:
     value_source: spo2pr_spot_check_spo2
 
     unit:
+      source_unit: "Percentage"
       unit: "%"
       system: "http://unitsofmeasure.org"
       code: "%"
@@ -62,7 +65,7 @@ target:
 additional_measurements:
   - name: pulse_rate
     source: spo2pr_spot_check_pr
-    required_from_decoder: true
+    required: false
 
     target:
       resource_type: Observation
@@ -109,6 +112,7 @@ additional_measurements:
         value_source: spo2pr_spot_check_pr
 
         unit:
+          source_unit: "bpm"
           unit: "beats/minute"
           system: "http://unitsofmeasure.org"
           code: "/min"
@@ -210,19 +214,12 @@ quality_mapping:
         text: "The sensor was disconnected."
 
 validation:
-  required_source_fields:
+  minimum_valid_source_fields: 1
+  source_fields:
     - spo2pr_spot_check_spo2
     - spo2pr_spot_check_pr
 
   rules:
-    - name: reject_nan_spo2
-      condition: "is_nan(spo2pr_spot_check_spo2)"
-      action: reject
-
-    - name: reject_nan_pulse_rate
-      condition: "is_nan(spo2pr_spot_check_pr)"
-      action: reject
-
     - name: reject_invalid_measurement
       condition: "measurement_status.invalid_measurement_detected == true"
       action: reject
@@ -230,3 +227,8 @@ validation:
     - name: reject_unavailable_measurement
       condition: "measurement_status.measurement_unavailable == true"
       action: reject
+
+constraints:
+  reject_status_flags:
+    - invalid_measurement_detected
+    - measurement_unavailable

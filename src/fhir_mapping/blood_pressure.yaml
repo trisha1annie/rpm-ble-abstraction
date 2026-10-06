@@ -1,5 +1,6 @@
 mapping_id: blood_pressure_observation
 fhir_version: R5
+minimum_outputs: 1
 
 source:
   device_type: blood_pressure_monitor
@@ -68,9 +69,11 @@ components:
           code: "mm[Hg]"
 
         1:
-          unit: "kPa"
+          source_unit: "kPa"
+          unit: "mmHg"
           system: "http://unitsofmeasure.org"
-          code: "kPa"
+          code: "mm[Hg]"
+          multiplier: 7.50062
 
   - name: diastolic
     source: diastolic
@@ -95,9 +98,11 @@ components:
           code: "mm[Hg]"
 
         1:
-          unit: "kPa"
+          source_unit: "kPa"
+          unit: "mmHg"
           system: "http://unitsofmeasure.org"
-          code: "kPa"
+          code: "mm[Hg]"
+          multiplier: 7.50062
 
   - name: mean_arterial_pressure
     source: mean_arterial_pressure
@@ -125,9 +130,11 @@ components:
           code: "mm[Hg]"
 
         1:
-          unit: "kPa"
+          source_unit: "kPa"
+          unit: "mmHg"
           system: "http://unitsofmeasure.org"
-          code: "kPa"
+          code: "mm[Hg]"
+          multiplier: 7.50062
 
 quality_mapping:
   source: measurement_status
@@ -158,7 +165,6 @@ validation:
   required_source_fields:
     - systolic
     - diastolic
-    - mean_arterial_pressure
 
   rules:
     - name: reject_nan_systolic
@@ -167,10 +173,6 @@ validation:
 
     - name: reject_nan_diastolic
       condition: "is_nan(diastolic)"
-      action: reject
-
-    - name: reject_nan_mean_arterial_pressure
-      condition: "is_nan(mean_arterial_pressure)"
       action: reject
 
     - name: unsupported_pressure_unit
