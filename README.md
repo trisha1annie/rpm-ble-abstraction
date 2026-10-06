@@ -64,8 +64,16 @@ Test full route discovery, notification subscription, and payload decoding using
 python -m ble_plugin.tools.inspect_driver --device-id <SIMULATOR_MAC>
 ```
 
+To also print FHIR Observations for supported routes:
+
+```bash
+python -m ble_plugin.tools.inspect_driver \
+    --device-id <SIMULATOR_MAC> \
+    --fhir --patient-reference Patient/example
+```
+
 In the simulator REPL, send notifications:
 - Blood Pressure: `notify bp 120 80 72`
 - Weight Scale: `notify weight 75.5 kg`
 
-Press `Ctrl+C` to stop and disconnect.
+Press `Ctrl+C` to stop and disconnect. Use `--fhir` with the blood pressure or weight simulator. The current pulse-oximeter simulator uses a proprietary route that decoding supports, but FHIR mapping covers SIG PLX `2A5E` only.
