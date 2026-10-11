@@ -5,6 +5,7 @@ from unittest.mock import Mock
 
 import pytest
 
+from ble_plugin.exceptions import UnexpectedFieldValueError
 from ble_plugin.discovery_models import (
     DiscoveredCharacteristic,
     DiscoveredGatt,
@@ -259,3 +260,43 @@ def test_driver_continues_after_router_error(monkeypatch, caplog):
     caplog.set_level(logging.WARNING, logger="ble_plugin.standard_plugin_driver")
     asyncio.run(exercise())
     assert "Unable to decode notification" in caplog.text
+
+
+def test_driver_ignores_frames_that_do_not_match_schema_at_debug_level(
+    monkeypatch, caplog
+):
+    async def exercise():
+        client = FakeBleClient(make_single_measurement_gatt("181D", "2A9D"))
+        driver = StandardPluginDriver(client)
+        measurements = []
+        monkeypatch.setattr(
+            standard_plugin_driver,
+            "_decode_notification",
+            Mock(
+                side_effect=UnexpectedFieldValueError(
+                    "Field 'flag' has value 128, expected 129",
+                    field_name="flag",
+                )
+            ),
+        )
+
+        await driver.start(measurements.append)
+        await client.fire("2A9D", b"\x80")
+
+        assert measurements == []
+        assert driver.is_started
+
+    caplog.set_level(logging.DEBUG, logger="ble_plugin.standard_plugin_driver")
+    asyncio.run(exercise())
+
+    records = [
+        record
+        for record in caplog.records
+        if record.name == "ble_plugin.standard_plugin_driver"
+    ]
+    assert any(
+        record.levelno == logging.DEBUG
+        and "does not match its schema" in record.getMessage()
+        for record in records
+    )
+    assert not any(record.levelno >= logging.WARNING for record in records)

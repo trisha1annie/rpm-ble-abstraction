@@ -5,9 +5,11 @@ from ble_plugin.schema import (
     LoadedDeviceSchema, GattServiceSchema, CharacteristicSchema, PayloadSchema, FieldSchema, TypeDefinition, normalise_uuid
 )
 from ble_plugin.yaml_loader import load_schema
+from ble_plugin.td_loader import load_wot_schema
 from ble_plugin.decoder import decode, _parse_sfloat16
 from ble_plugin.models import SfloatSpecialValue, DecodedValue
-from ble_plugin.exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError
+from ble_plugin.exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, UnexpectedFieldValueError
+from routing.router import router
 
 
 def build_mock_schema(fields, types=None):
@@ -138,6 +140,51 @@ def test_invalid_uuid():
         normalise_uuid("invalid-uuid-string")
 
 
+def test_expected_integer_value_matches():
+    schema = build_mock_schema([
+        FieldSchema("flag", "uint8", 1, expected_value=0x81),
+        FieldSchema("val", "uint8", 1),
+    ])
+    result = decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", b'\x81\x42')
+    assert result.values["flag"].raw_value == 0x81
+    assert result.values["val"].raw_value == 0x42
+
+
+def test_expected_integer_value_mismatch():
+    schema = build_mock_schema([
+        FieldSchema("flag", "uint8", 1, expected_value=0x81),
+        FieldSchema("val", "uint8", 1),
+    ])
+    with pytest.raises(UnexpectedFieldValueError, match="Field 'flag' has value 128, expected 129") as exc:
+        decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", b'\x80\x42')
+    assert exc.value.field_name == "flag"
+    assert exc.value.byte_offset == 0
+
+
+def test_expected_bytes_value_is_case_insensitive():
+    schema = build_mock_schema([
+        FieldSchema("tail", "bytes", 2, expected_value="AB00"),
+    ])
+    result = decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", b'\xab\x00')
+    assert result.values["tail"].raw_value == "ab00"
+
+
+def test_expected_bytes_value_mismatch():
+    schema = build_mock_schema([
+        FieldSchema("tail", "bytes", 2, expected_value="0000"),
+    ])
+    with pytest.raises(UnexpectedFieldValueError, match="Field 'tail'"):
+        decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", b'\x00\x01')
+
+
+def test_expected_value_not_enforced_for_float_fields():
+    schema = build_mock_schema([
+        FieldSchema("unused", "medfloat16", 2, expected_value="NaN"),
+    ])
+    result = decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", b'\x78\x00')
+    assert result.values["unused"].raw_value == 120.0
+
+
 # --- Real Schema Decoding Tests ---
 
 def get_real_schema(filename):
@@ -263,4 +310,85 @@ def test_real_pulse_oximeter_status():
     
     assert res_status.status_flags["measurement_ongoing"] is True
     assert res_status.status_flags.get("early_estimated_data") is False
+
+
+# --- YK oximeter (WoT TD/BDO), payloads captured from a real device ---
+
+YK_SERVICE_UUID = "cdeacd80-5235-4c07-8846-93a37ee6b86d"
+YK_CHARACTERISTIC_UUID = "cdeacd81-5235-4c07-8846-93a37ee6b86d"
+
+
+def get_yk_oximeter_schema():
+    td_path = os.path.join(
+        os.path.dirname(__file__), "..", "src", "wot", "td", "oxi.yaml"
+    )
+    return load_wot_schema(td_path)
+
+
+def decode_yk(hex_payload):
+    return decode(
+        get_yk_oximeter_schema(),
+        YK_CHARACTERISTIC_UUID,
+        bytes.fromhex(hex_payload),
+    )
+
+
+def test_yk_oximeter_measurement_at_rest():
+    result = decode_yk("81624b450000000000000000000000")
+
+    assert result.values["spo2"].physical_value == 98
+    assert result.values["spo2"].unit == "%"
+    assert result.values["pulse_rate"].physical_value == 75
+    assert result.values["pulse_rate"].unit == "bpm"
+    assert result.values["perfusion_index_raw"].physical_value == 69
+    assert result.values["reserved"].raw_value == "00" * 11
+
+
+def test_yk_oximeter_measurement_after_exercise():
+    result = decode_yk("816371550000000000000000000000")
+
+    assert result.values["spo2"].physical_value == 99
+    assert result.values["pulse_rate"].physical_value == 113
+    assert result.values["perfusion_index_raw"].physical_value == 85
+
+
+def test_yk_oximeter_measurement_with_finger_removed():
+    result = decode_yk("810000000000000000000000000000")
+
+    assert result.values["spo2"].physical_value == 0
+    assert result.values["pulse_rate"].physical_value == 0
+    assert result.values["perfusion_index_raw"].physical_value == 0
+
+
+def test_yk_oximeter_rejects_waveform_packet():
+    with pytest.raises(UnexpectedFieldValueError) as exc:
+        decode_yk("802a2827272828292a292800000000")
+    assert exc.value.field_name == "flag"
+
+
+def test_yk_oximeter_rejects_non_zero_reserved_bytes():
+    with pytest.raises(UnexpectedFieldValueError) as exc:
+        decode_yk("81624b450000000000000000000001")
+    assert exc.value.field_name == "reserved"
+
+
+def test_yk_oximeter_rejects_legacy_ten_byte_packet():
+    with pytest.raises(PayloadDecodeError, match="Payload truncated"):
+        decode_yk("81624800000000000000")
+
+
+def test_yk_oximeter_rejects_trailing_bytes():
+    with pytest.raises(PayloadDecodeError, match="unexpected trailing bytes"):
+        decode_yk("81624b45000000000000000000000000")
+
+
+def test_router_decodes_yk_oximeter_through_wot_schema():
+    result = router(
+        YK_SERVICE_UUID,
+        YK_CHARACTERISTIC_UUID,
+        bytes.fromhex("81624b450000000000000000000000"),
+    )
+
+    assert result.values["spo2"].physical_value == 98
+    assert result.values["pulse_rate"].physical_value == 75
 
