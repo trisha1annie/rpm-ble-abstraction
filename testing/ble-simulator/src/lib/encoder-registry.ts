@@ -36,19 +36,18 @@ export const encoders: EncoderRegistry = {
   },
 
   "pulse-oximeter": {
-    encode: (spo2: number, pulseRate: number) => {
-      const buffer = Buffer.alloc(10);
+    encode: (spo2: number, pulseRate: number, perfusionIndexRaw = 0) => {
+      const buffer = Buffer.alloc(15); // Bytes 4-14 stay zero
 
-      buffer.writeUInt8(0x81, 0); // Flag byte
+      buffer.writeUInt8(0x81, 0); // Measurement frame flag
       buffer.writeUInt8(spo2, 1); // SpO2 percentage
       buffer.writeUInt8(pulseRate, 2); // Pulse rate
-      buffer.writeUInt8(0, 4); // Required zero byte
-      buffer.writeUInt8(0, 9); // Required zero byte
+      buffer.writeUInt8(perfusionIndexRaw, 3); // Likely perfusion index in tenths
 
       return buffer;
     },
-    description: "Pulse Oximeter Measurement - SpO2 and pulse rate",
-    example: "98 72 (SpO2%, pulse rate)",
+    description: "Pulse Oximeter Measurement - SpO2, pulse rate, perfusion index (raw)",
+    example: "98 72 [45] (SpO2%, pulse rate, raw perfusion index)",
   },
 
   "weight-scale": {
