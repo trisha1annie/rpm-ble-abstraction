@@ -79,6 +79,6 @@ In the simulator REPL, send notifications:
 - Blood Pressure: `notify bp 120 80 72`
 - Weight Scale: `notify weight 75.5 kg`
 
-Press `Ctrl+C` to stop and disconnect. Use `--fhir` with the blood pressure or weight simulator. The current pulse-oximeter simulator uses a proprietary route that decoding supports, but FHIR mapping covers SIG PLX `2A5E` only.
+Press `Ctrl+C` to stop and disconnect. Use `--fhir` with the blood pressure, weight, or pulse-oximeter simulator. The pulse-oximeter simulator uses the proprietary YK route, which `src/fhir_mapping/yk_oximeter.yaml` maps to SpO2 and heart rate Observations.
 
 The YK pulse oximeter is described by `src/wot/td/oxi.yaml` and `src/wot/bdo/oxi.yaml`. Only its 15-byte `0x81` measurement frames are decoded (SpO2, pulse rate, raw perfusion index). The real device also sends `0x80` waveform frames on the same characteristic. These fail the schema's `expected_value` check and are dropped, so add `--verbose` to see them.

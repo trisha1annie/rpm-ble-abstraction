@@ -520,6 +520,31 @@ def load_fhir_mapping(file_path: str | Path) -> LoadedFhirMapping:
                 source_path,
             )
 
+    reject_values = _require_mapping(
+        constraints_mapping.get("reject_values", {}),
+        "constraints.reject_values",
+        source_path,
+    )
+    for field_name, rejected in reject_values.items():
+        if field_name not in source_fields:
+            raise FhirMappingLoadError(
+                f"Constraint refers to unknown source field '{field_name}'",
+                source_path,
+            )
+        if (
+            not isinstance(rejected, list)
+            or not rejected
+            or any(
+                isinstance(value, bool) or not isinstance(value, (int, float))
+                for value in rejected
+            )
+        ):
+            raise FhirMappingLoadError(
+                f"Rejected values for '{field_name}' must be a non-empty "
+                "list of numbers",
+                source_path,
+            )
+
     return LoadedFhirMapping(
         mapping_id=mapping_id,
         fhir_version="R5",

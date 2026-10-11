@@ -248,6 +248,62 @@ def test_plx_rejects_when_neither_output_is_usable():
         )
 
 
+YK_SERVICE_UUID = "cdeacd80-5235-4c07-8846-93a37ee6b86d"
+YK_CHARACTERISTIC_UUID = "cdeacd81-5235-4c07-8846-93a37ee6b86d"
+
+
+def test_yk_oximeter_emits_spo2_and_heart_rate_observations():
+    result = make_normaliser().normalise(
+        measurement(
+            YK_SERVICE_UUID,
+            YK_CHARACTERISTIC_UUID,
+            {
+                "spo2": decoded(97, "%"),
+                "pulse_rate": decoded(72, "bpm"),
+                "perfusion_index_raw": decoded(160, None),
+            },
+        ),
+        NormalisationContext("Patient/123"),
+    )
+
+    assert len(result) == 2
+    assert result[0]["meta"]["profile"] == [
+        "http://hl7.org/fhir/StructureDefinition/oxygensat"
+    ]
+    assert "59408-5" in coding_codes(result[0])
+    assert result[0]["valueQuantity"] == {
+        "value": 97,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%",
+    }
+    assert "8867-4" in coding_codes(result[1])
+    assert result[1]["valueQuantity"]["value"] == 72
+    assert result[1]["valueQuantity"]["code"] == "/min"
+
+
+@pytest.mark.parametrize(
+    ("spo2", "pulse_rate", "rejected_field"),
+    [(0, 0, "spo2"), (0, 72, "spo2"), (97, 0, "pulse_rate")],
+)
+def test_yk_oximeter_rejects_no_finger_readings(spo2, pulse_rate, rejected_field):
+    with pytest.raises(
+        FhirNormalisationError,
+        match=f"'{rejected_field}' has rejected value 0",
+    ):
+        make_normaliser().normalise(
+            measurement(
+                YK_SERVICE_UUID,
+                YK_CHARACTERISTIC_UUID,
+                {
+                    "spo2": decoded(spo2, "%"),
+                    "pulse_rate": decoded(pulse_rate, "bpm"),
+                },
+            ),
+            NormalisationContext("Patient/123"),
+        )
+
+
 def test_weight_only_preserves_kilograms_and_omits_device():
     result = make_normaliser().normalise(
         measurement(

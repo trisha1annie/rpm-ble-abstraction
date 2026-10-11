@@ -176,6 +176,15 @@ class FhirNormaliser:
                         f"'{dependency}' value"
                     )
 
+        reject_values = mapping.constraints.get("reject_values", {})
+        for source_name, rejected_values in reject_values.items():
+            value = _finite_physical_value(values.get(source_name))
+            if value is not None and value in rejected_values:
+                raise FhirNormalisationError(
+                    f"Measurement rejected because '{source_name}' has "
+                    f"rejected value {value}"
+                )
+
     def _build_output(
         self,
         output: Mapping[str, Any],
