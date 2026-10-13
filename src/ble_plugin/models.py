@@ -26,4 +26,4 @@ class DecodedPayload:
     """Represents a successfully decoded generic payload."""
     values: dict[str, DecodedValue]
     status_flags: dict[str, Any]
-    warnings: tuple[str, ...] = field(default_factory=tuple)
+    quality_flags: dict[str, Any] = field(default_factory=dict)

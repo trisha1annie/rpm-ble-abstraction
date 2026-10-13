@@ -49,6 +49,7 @@ characteristics:
             if: "flags.measurement_units_imperial == 0"
             then: { unit: "kg", resolution: 0.005 }
             else: { unit: "lb", resolution: 0.01 }
+          required: true
 
         - name: time_stamp
           type: struct

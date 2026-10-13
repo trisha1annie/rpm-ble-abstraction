@@ -1,0 +1,169 @@
+mapping_id: weight_observation
+fhir_version: R5
+minimum_outputs: 1
+
+source:
+  device_type: weight_scale
+  service_uuid: "181D"
+  characteristic_uuid: "2A9D"
+  characteristic_name: weight_measurement
+
+target:
+  resource_type: Observation
+
+  profile:
+    - "http://hl7.org/fhir/StructureDefinition/bodyweight"
+
+  fixed:
+    status: final
+
+    category:
+      - coding:
+          - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+            code: "vital-signs"
+            display: "Vital Signs"
+
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "29463-7"
+          display: "Body weight"
+      text: "Body weight"
+
+  dynamic:
+    identifier:
+      generate: true
+      system: "urn:ietf:rfc:3986"
+      format: "urn:uuid:{reading_uuid}"
+
+    subject:
+      provided_by: rpm_application
+      output:
+        reference: "Patient/{patient_id}"
+
+    effectiveDateTime:
+      source: time_stamp
+      fallback: gateway_received_time
+
+  value:
+    type: Quantity
+    path: valueQuantity
+    value_source: weight
+    unit_source: flags.measurement_units_imperial
+
+    unit_mapping:
+      0:
+        unit: "kg"
+        system: "http://unitsofmeasure.org"
+        code: "kg"
+
+      1:
+        unit: "lb"
+        system: "http://unitsofmeasure.org"
+        code: "[lb_av]"
+
+additional_measurements:
+  - name: body_height
+    source: height
+    required: false
+
+    target:
+      resource_type: Observation
+
+      profile:
+        - "http://hl7.org/fhir/StructureDefinition/bodyheight"
+
+      fixed:
+        status: final
+
+        category:
+          - coding:
+              - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+                code: "vital-signs"
+                display: "Vital Signs"
+
+        code:
+          coding:
+            - system: "http://loinc.org"
+              code: "8302-2"
+              display: "Body height"
+          text: "Body height"
+
+      dynamic:
+        subject:
+          copy_from: weight_observation.subject
+
+        effectiveDateTime:
+          copy_from: weight_observation.effectiveDateTime
+
+      value:
+        type: Quantity
+        path: valueQuantity
+        value_source: height
+        unit_source: flags.measurement_units_imperial
+
+        unit_mapping:
+          0:
+            source_unit: "m"
+            unit: "cm"
+            system: "http://unitsofmeasure.org"
+            code: "cm"
+            multiplier: 100
+
+          1:
+            unit: "in"
+            system: "http://unitsofmeasure.org"
+            code: "[in_i]"
+
+  - name: body_mass_index
+    source: bmi
+    required: false
+
+    target:
+      resource_type: Observation
+
+      profile:
+        - "http://hl7.org/fhir/StructureDefinition/bmi"
+
+      fixed:
+        status: final
+
+        category:
+          - coding:
+              - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+                code: "vital-signs"
+                display: "Vital Signs"
+
+        code:
+          coding:
+            - system: "http://loinc.org"
+              code: "39156-5"
+              display: "Body mass index (BMI) [Ratio]"
+          text: "Body mass index"
+
+      dynamic:
+        subject:
+          copy_from: weight_observation.subject
+
+        effectiveDateTime:
+          copy_from: weight_observation.effectiveDateTime
+
+      value:
+        type: Quantity
+        path: valueQuantity
+        value_source: bmi
+
+        unit:
+          source_unit: "kg/m^2"
+          unit: "kg/m2"
+          system: "http://unitsofmeasure.org"
+          code: "kg/m2"
+
+constraints:
+  requires:
+    bmi:
+      - height
+
+validation:
+  required_source_fields:
+    - weight

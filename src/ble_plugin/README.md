@@ -15,7 +15,7 @@ python -m ble_plugin.tools.inspect_ble_device --scan-timeout 10
 
 ### 2. Connect and Print GATT Topology
 ```bash
-python -m ble_plugin.tools.inspect_ble_device --device-id <MAC_ADDRESS>
+python -m ble_plugin.tools.inspect_ble_device --device-id <05D640CD-ABCF-BABE-2048-7B646FACDA16>
 ```
 
 ### 3. Subscribe and Stream Live Data

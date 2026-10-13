@@ -28,7 +28,9 @@ from __future__ import annotations
 import argparse
 import asyncio
 import sys
+import time
 from datetime import datetime, timezone
+from fault_handling.stream_handler import StreamHandler
 
 from ble_plugin.bleak_client import BleakBleClient, BleakScannerAdapter
 from ble_plugin.schema import normalise_uuid
@@ -82,13 +84,109 @@ async def _run(args: argparse.Namespace) -> int:
             "\n(raw hex, no decoding)"
         )
 
+        handler = StreamHandler()
+
+        async def monitor_dropout():
+            dropout_reported = False
+
+            while True:
+                await asyncio.sleep(0.1)
+
+                if handler.baseline is None:
+                    continue
+
+                median_interval, mad = handler.baseline
+                timeout = 3 * median_interval
+
+                dropout_detected = handler.check_dropout(
+                    time.monotonic(),
+                    timeout
+                )
+
+                if dropout_detected and not dropout_reported:
+                    print("Possible dropout detected")
+                    dropout_reported = True
+
+                elif not dropout_detected:
+                    dropout_reported = False
+
+
         def _on_notification(uuid: str, data: bytes) -> None:
-            ts = datetime.now(timezone.utc).isoformat(timespec="milliseconds")
+            ts = datetime.now(timezone.utc).isoformat(
+                timespec="milliseconds"
+            )
+
+            arrival_time = time.monotonic()
+            interval = handler.check_notification(arrival_time)
+
+            if interval is not None:
+
+                # Establish the initial baseline
+                if handler.baseline is None:
+                    baseline = handler.establish_baseline(sample_size=10)
+
+                    if baseline is not None:
+                        print(
+                            f"Baseline established: "
+                            f"Median = {baseline[0] * 1000:.2f} ms, "
+                            f"MAD = {baseline[1] * 1000:.2f} ms"
+                        )
+
+                else:
+                    # Check for a sustained rate change
+                    changed = handler.detect_rate_change(interval)
+
+                    if changed:
+                        new_interval, new_mad = handler.baseline
+                        new_rate = 1 / new_interval
+
+                        print(
+                            f"Rate changed: "
+                            f"{new_rate:.2f} Hz "
+                            f"({new_interval * 1000:.2f} ms)"
+                        )
+
+                    # Detect timing anomalies against the current baseline
+                    else:
+                        anomaly = handler.detect_anomaly(
+                            interval,
+                            handler.baseline
+                        )
+
+                        if anomaly:
+                            print("Timing anomaly detected")
+
+                    # Detect unusually long gaps
+                    median_interval, mad = handler.baseline
+
+                    if interval > 3 * median_interval:
+                        print("Long notification gap detected")
+
+                print(f"Interval: {interval * 1000:.2f} ms")
+
+                # Calculate rolling-window jitter
+                jitter = handler.calculate_jitter_window(size=10)
+
+                if jitter is not None:
+                    print(f"Window jitter: {jitter * 1000:.2f} ms")
+
             print(f"{ts} | {uuid} | {data.hex()}")
 
         await client.subscribe(normalised_char, _on_notification)
-        await asyncio.sleep(args.listen_seconds)
-        await client.unsubscribe(normalised_char)
+
+        dropout_task = asyncio.create_task(monitor_dropout())
+
+        try:
+            await asyncio.sleep(args.listen_seconds)
+        finally:
+            dropout_task.cancel()
+
+            try:
+                await dropout_task
+            except asyncio.CancelledError:
+                pass
+
+            await client.unsubscribe(normalised_char)
 
     finally:
         await client.disconnect()

@@ -37,6 +37,8 @@ def _load_fields(fields_list: list, source_path: str, types_dict: dict) -> tuple
             
         if ref and ref not in types_dict:
             raise SchemaLoadError(f"field '{name}' references unknown type '{ref}'", source_path)
+        
+        req = field_data.get("required", False)
             
         parsed_fields.append(FieldSchema(
             name=name,
@@ -52,7 +54,8 @@ def _load_fields(fields_list: list, source_path: str, types_dict: dict) -> tuple
             always_present=field_data.get("always_present", False),
             expected_value=field_data.get("expected_value"),
             notes=field_data.get("notes"),
-            ref=ref
+            ref=ref,
+            required = req
         ))
         
     return tuple(parsed_fields)
