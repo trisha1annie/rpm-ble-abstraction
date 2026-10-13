@@ -80,6 +80,10 @@ class BleSubscriptionError(BleTransportError):
     """Raised when starting or stopping a notification/indication subscription fails."""
     pass
 
+class TruncatedPayloadError(PayloadDecodeError):
+    """Raised when insufficient bytes are available to decode a field."""
+    pass
+
 class InvalidPayloadError(SchemaDrivenBleError):
     """Raised when a decoded payload is unusable because required fields missing."""
     def __init__(self, message: str, schema_file: str = None, characteristic_uuid: str = None, field_name: str = None, payload_length: int = None, byte_offset: int = None):

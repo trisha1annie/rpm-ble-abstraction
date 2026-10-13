@@ -197,3 +197,29 @@ def test_dropout_no_notifications():
     handler = StreamHandler()
 
     assert handler.check_dropout(1.0, 0.6) is False
+
+def test_window_jitter():
+    handler = StreamHandler()
+
+    handler.intervals = [0.2, 0.21, 0.19, 0.2]
+
+    result = handler.calculate_jitter_window(size=4)
+
+    assert result == pytest.approx(0.04)
+
+def test_window_jitter_uses_recent_intervals():
+    handler = StreamHandler()
+
+    handler.intervals = [0.5, 0.2, 0.21, 0.19, 0.2]
+
+    result = handler.calculate_jitter_window(size=4)
+
+    assert result == pytest.approx(0.04)
+
+
+def test_window_jitter_insufficient_data():
+    handler = StreamHandler()
+
+    handler.intervals = [0.2, 0.21]
+
+    assert handler.calculate_jitter_window(size=4) is None

@@ -9,6 +9,8 @@ from ble_plugin.decoder import decode, _parse_sfloat16
 from ble_plugin.models import SfloatSpecialValue, DecodedValue
 from ble_plugin.exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError
 
+CHAR_UUID = "00002a35-0000-1000-8000-00805f9b34fb"
+
 
 def build_mock_schema(fields, types=None):
     char = CharacteristicSchema(
@@ -104,26 +106,6 @@ def test_present_if_true_and_false():
     assert "val2" not in result.values
 
 
-def test_truncated_payload():
-    schema = build_mock_schema([
-        FieldSchema("val1", "uint16", 2, always_present=True)
-    ])
-    payload = b'\x01'
-    with pytest.raises(PayloadDecodeError, match="Payload truncated"):
-        decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", payload)
-
-
-def test_truncated_payload_present_if_true():
-    schema = build_mock_schema([
-        FieldSchema("flags", "boolean[8]", 1, bitfield={"bit_0": "has_val1"}),
-        FieldSchema("val1", "uint16", 2, present_if="flags.has_val1 == 1")
-    ])
-    # flags has bit_0 = 1, so val1 is present. But payload only has 2 bytes total (flags=1, val1=1)
-    payload = b'\x01\x02'
-    with pytest.raises(PayloadDecodeError, match="Payload truncated"):
-        decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", payload)
-
-
 def test_unsupported_decoder_feature():
     schema = build_mock_schema([
         FieldSchema("val", "float64", 8)
@@ -203,14 +185,6 @@ def test_real_blood_pressure():
     assert ts["month"] == 5
 
 
-def test_unexpected_trailing_bytes():
-    schema = build_mock_schema([
-        FieldSchema("val1", "uint16", 2)
-    ])
-    payload = b'\x34\x12\xFF' # 3 bytes instead of 2
-    with pytest.raises(PayloadDecodeError, match="unexpected trailing bytes"):
-        decode(schema, "00002a35-0000-1000-8000-00805f9b34fb", payload)
-
 
 def test_real_pulse_oximeter_base():
     schema = get_real_schema("pulse_oximeter.yaml")
@@ -264,3 +238,33 @@ def test_real_pulse_oximeter_status():
     assert res_status.status_flags["measurement_ongoing"] is True
     assert res_status.status_flags.get("early_estimated_data") is False
 
+
+def test_invalid_fixed_field_size():
+    schema = build_mock_schema([
+        FieldSchema(
+            name="val1",
+            type_name="uint16",
+            size_bytes=1
+        )
+    ])
+
+    payload = b'\x34\x12'
+
+    with pytest.raises(PayloadDecodeError, match="Invalid field size"):
+        decode(schema, CHAR_UUID, payload)
+
+
+def test_reserved_sfloat_encoding():
+    schema = build_mock_schema([
+        FieldSchema(
+            name="systolic",
+            type_name="sfloat16",
+            size_bytes=2,
+            required=True
+        )
+    ])
+
+    payload = bytes.fromhex("0108")  # 0x0801, little-endian
+
+    with pytest.raises(PayloadDecodeError, match="Reserved SFLOAT encoding"):
+        decode(schema, CHAR_UUID, payload)

@@ -85,60 +85,95 @@ async def _run(args: argparse.Namespace) -> int:
         )
 
         handler = StreamHandler()
-        baseline = None
-        calibration_intervals = 10
 
         async def monitor_dropout():
             dropout_reported = False
-            while True: 
+
+            while True:
                 await asyncio.sleep(0.1)
 
-                if baseline is None:
+                if handler.baseline is None:
                     continue
 
-                median_interval, mad = baseline
-                timeout = 3*median_interval
+                median_interval, mad = handler.baseline
+                timeout = 3 * median_interval
 
-                dropout_detected = handler.check_dropout(time.monotonic(), timeout)
+                dropout_detected = handler.check_dropout(
+                    time.monotonic(),
+                    timeout
+                )
 
                 if dropout_detected and not dropout_reported:
                     print("Possible dropout detected")
                     dropout_reported = True
+
                 elif not dropout_detected:
                     dropout_reported = False
 
-        def _on_notification(uuid: str, data: bytes) -> None:
-            nonlocal baseline
 
-            ts = datetime.now(timezone.utc).isoformat(timespec="milliseconds")
-            
+        def _on_notification(uuid: str, data: bytes) -> None:
+            ts = datetime.now(timezone.utc).isoformat(
+                timespec="milliseconds"
+            )
+
             arrival_time = time.monotonic()
             interval = handler.check_notification(arrival_time)
-            
-            if interval is not None: 
-                print(f"Interval: {interval*1000:.2f} ms")
-                
-                if baseline is None:
-                    if len(handler.intervals) >= calibration_intervals:
-                        baseline = handler.calculate_baseline()
 
+            if interval is not None:
+
+                # Establish the initial baseline
+                if handler.baseline is None:
+                    baseline = handler.establish_baseline(sample_size=10)
+
+                    if baseline is not None:
                         print(
                             f"Baseline established: "
                             f"Median = {baseline[0] * 1000:.2f} ms, "
                             f"MAD = {baseline[1] * 1000:.2f} ms"
                         )
-                else: 
-                    anomaly = handler.detect_anomaly(
-                        interval, baseline
-                    )
 
-                    if anomaly:
-                        print("Timing anomaly detected")
+                else:
+                    # Check for a sustained rate change
+                    changed = handler.detect_rate_change(interval)
 
+                    if changed:
+                        new_interval, new_mad = handler.baseline
+                        new_rate = 1 / new_interval
+
+                        print(
+                            f"Rate changed: "
+                            f"{new_rate:.2f} Hz "
+                            f"({new_interval * 1000:.2f} ms)"
+                        )
+
+                    # Detect timing anomalies against the current baseline
+                    else:
+                        anomaly = handler.detect_anomaly(
+                            interval,
+                            handler.baseline
+                        )
+
+                        if anomaly:
+                            print("Timing anomaly detected")
+
+                    # Detect unusually long gaps
+                    median_interval, mad = handler.baseline
+
+                    if interval > 3 * median_interval:
+                        print("Long notification gap detected")
+
+                print(f"Interval: {interval * 1000:.2f} ms")
+
+                # Calculate rolling-window jitter
+                jitter = handler.calculate_jitter_window(size=10)
+
+                if jitter is not None:
+                    print(f"Window jitter: {jitter * 1000:.2f} ms")
 
             print(f"{ts} | {uuid} | {data.hex()}")
 
         await client.subscribe(normalised_char, _on_notification)
+
         dropout_task = asyncio.create_task(monitor_dropout())
 
         try:

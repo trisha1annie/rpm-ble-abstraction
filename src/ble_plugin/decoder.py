@@ -6,8 +6,8 @@ from .schema import (
     LoadedDeviceSchema, CharacteristicSchema, FieldSchema, TypeDefinition, PayloadSchema
 )
 from .models import DecodedPayload, DecodedValue, SfloatSpecialValue
-from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, InvalidPayloadError
-from fault_handling.quality_handler import payload_quality
+from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, InvalidPayloadError, TruncatedPayloadError
+from fault_handling.quality_handler import payload_quality, handle_payload
 
 
 def _evaluate_condition(condition: str, context_values: dict[str, Any], context_flags: dict[str, Any]) -> bool:
@@ -159,9 +159,32 @@ def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: L
     elif field_schema.type_name.startswith("boolean["):
         size_bytes = size_bytes or int(field_schema.type_name.replace("boolean[", "").replace("]", "")) // 8
 
+    # Validate field size
+    fixed_sizes = {
+        "uint8": 1,
+        "uint16": 2,
+        "uint24": 3,
+        "uint32": 4,
+        "medfloat16": 2,
+        "sfloat16": 2,
+    }
+
+    expected_size = fixed_sizes.get(field_schema.type_name)
+
+    if expected_size is not None and field_schema.size_bytes not in (0, expected_size):
+        raise PayloadDecodeError(
+            f"Invalid field size for '{field_schema.name}': "
+            f"expected {expected_size}, got {field_schema.size_bytes}",
+            schema_file=schema.source_path,
+            characteristic_uuid=char_uuid,
+            field_name=field_schema.name,
+            payload_length=len(data),
+            byte_offset=offset,
+        )
+
     # Validate truncation if field size is known
     if size_bytes > 0 and offset + size_bytes > len(data):
-        raise PayloadDecodeError(
+        raise TruncatedPayloadError(
             f"Payload truncated reading field '{field_schema.name}'",
             schema_file=schema.source_path,
             characteristic_uuid=char_uuid,
@@ -194,6 +217,16 @@ def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: L
         flags = parsed_flags
     elif field_schema.type_name in ("medfloat16", "sfloat16"):
         val, sz = _parse_sfloat16(data, offset, byte_order)
+        
+        if val == SfloatSpecialValue.RESERVED:
+            raise PayloadDecodeError(
+                f"Reserved SFLOAT encoding in field '{field_schema.name}'",
+                schema_file=schema.source_path,
+                characteristic_uuid=char_uuid,
+                field_name=field_schema.name,
+                payload_length=len(data),
+                byte_offset=offset
+            )
     elif field_schema.type_name == "bytes":
         val = data[
             offset : offset + size_bytes
@@ -246,9 +279,12 @@ def decode(schema: LoadedDeviceSchema, characteristic_uuid: str, payload: bytes)
     for field_schema in payload_schema.fields:
         try:
             val, sz, flags = _decode_field(field_schema, payload, offset, schema, characteristic_uuid, values, status_flags)
-        except PayloadDecodeError: 
+        except TruncatedPayloadError:
             quality_flags["truncated_payload"] = True
             break
+
+        except PayloadDecodeError: 
+            raise
 
         if val is not None:
             if field_schema.type_name.startswith("boolean["):
@@ -299,12 +335,14 @@ def decode(schema: LoadedDeviceSchema, characteristic_uuid: str, payload: bytes)
         quality_flags = quality_flags
     )
 
-    payload_validity = payload_quality(decoded_payload, payload_schema)
-    if payload_validity[0] == "INVALID":
+    quality_status, missing_required = payload_quality(decoded_payload, payload_schema)
+    accepted_payload = handle_payload(decoded_payload, quality_status)
+
+    if accepted_payload is None:
         raise InvalidPayloadError(
-            f"Payload is missing required fields: {payload_validity[1]}",
+            f"Payload rejected due to critical quality flags",
             schema_file=schema.source_path,
             characteristic_uuid=characteristic_uuid,
             payload_length=len(payload)
         )
-    return decoded_payload
+    return accepted_payload

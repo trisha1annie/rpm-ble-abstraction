@@ -3,7 +3,7 @@ from ble_plugin.schema import PayloadSchema
 
 """Decides if a payload is invalid or not"""
 """If a required field is missing the handler marks the payload as invalid"""
-def payload_quality(decode: DecodedPayload, schema: PayloadSchema) -> str:
+def payload_quality(decode: DecodedPayload, schema: PayloadSchema) -> tuple[str, set[str]]:
     required_fields = set(
         field.name
         for field in schema.fields
@@ -15,6 +15,26 @@ def payload_quality(decode: DecodedPayload, schema: PayloadSchema) -> str:
 
     if missing_required: 
         return ("INVALID", missing_required)
-    if decode.quality_flags: 
-        return "USABLE"
-    return "VALID PAYLOAD"
+
+    recoverable_payload_flags = {
+        "truncated_payload", 
+        "trailing_bytes"
+    }
+
+    if any(
+        value and flag not in recoverable_payload_flags 
+        for flag, value in decode.quality_flags.items()
+    ):
+        return ("INVALID", set())
+
+    if any(decode.quality_flags.values()): 
+        return ("USABLE", set())
+    return ("VALID PAYLOAD", set())
+
+def handle_payload(
+    decoded_payload: DecodedPayload,
+    quality_status: str
+) -> DecodedPayload | None:
+    if quality_status == "INVALID":
+        return None
+    return decoded_payload
