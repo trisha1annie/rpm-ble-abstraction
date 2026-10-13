@@ -55,16 +55,18 @@ notify bp 130 85 75      # Send as notification
 
 ### `pulse-oximeter`
 
-Encodes pulse oximeter measurements with SpO2 percentage and pulse rate. Uses YK oximeter proprietary format.
+Encodes pulse oximeter measurements with SpO2 percentage and pulse rate. Uses the YK oximeter proprietary measurement frame, as captured from a real device.
 
 **Binary Format:**
 
-- Byte 0: Flag (0x81)
+- Byte 0: Flag (0x81, measurement frame)
 - Byte 1: SpO2 percentage
 - Byte 2: Pulse rate
-- Byte 4: Reserved (0x00)
-- Byte 9: Reserved (0x00)
-- Total: 10 bytes
+- Byte 3: Raw perfusion index (likely tenths of a percent, not yet confirmed against the device screen; defaults to 0)
+- Bytes 4-14: Reserved (0x00)
+- Total: 15 bytes
+
+The real device also sends `0x80` waveform frames (10 pulse-wave samples in bytes 1-10) on the same characteristic about every 200 ms. This encoder does not produce them, and the decoder ignores them.
 
 **YAML Configuration:**
 
@@ -80,10 +82,11 @@ Encodes pulse oximeter measurements with SpO2 percentage and pulse rate. Uses YK
 
 ```bash
 notify oxi 98 72         # SpO2: 98%, Pulse: 72 bpm
+notify oxi 98 72 45      # SpO2: 98%, Pulse: 72 bpm, raw perfusion index 45
 write oxi 95 80          # SpO2: 95%, Pulse: 80 bpm
 ```
 
-**Arguments:** `<spo2> <pulse>`
+**Arguments:** `<spo2> <pulse> [perfusion_index_raw]`
 
 ---
 

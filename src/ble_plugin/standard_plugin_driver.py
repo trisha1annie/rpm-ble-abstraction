@@ -8,11 +8,17 @@ from datetime import datetime, timezone
 from typing import Any
 
 from .ble_client import BleClient
+from .exceptions import UnexpectedFieldValueError
 from .models import DecodedPayload
 from .plugin_driver import DriverMeasurement, MeasurementCallback, PluginDriver
 from .schema import normalise_uuid
 
 _log = logging.getLogger(__name__)
+
+_GENERIC_ATTRIBUTE_SERVICE_UUID = normalise_uuid("1801")
+_SERVICE_CHANGED_CHARACTERISTIC_UUID = normalise_uuid("2A05")
+_SKIP_SERVICE_UUIDS = frozenset({_GENERIC_ATTRIBUTE_SERVICE_UUID})
+_SKIP_CHARACTERISTIC_UUIDS = frozenset({_SERVICE_CHANGED_CHARACTERISTIC_UUID})
 
 
 class DriverLifecycleError(RuntimeError):
@@ -27,6 +33,12 @@ def _decode_notification(
     from routing.router import router
 
     return router(service_uuid, characteristic_uuid, payload)
+
+
+def _supports_route(service_uuid: str, characteristic_uuid: str) -> bool:
+    from routing.router import supports_route
+
+    return supports_route(service_uuid, characteristic_uuid)
 
 
 class StandardPluginDriver:
@@ -68,6 +80,8 @@ class StandardPluginDriver:
                     if not {"notify", "indicate"}.intersection(characteristic.properties):
                         continue
                     characteristic_uuid = normalise_uuid(characteristic.uuid)
+                    if not _supports_route(service_uuid, characteristic_uuid):
+                        continue
                     if characteristic_uuid in self._subscriptions:
                         raise DriverLifecycleError(
                             "A notification characteristic UUID occurs in multiple "
@@ -107,6 +121,18 @@ class StandardPluginDriver:
 
         try:
             decoded = _decode_notification(service_uuid, normalised_uuid, payload)
+        except UnexpectedFieldValueError as exc:
+            # Devices can interleave other frame types (e.g. waveform data) on a
+            # measurement characteristic, so mismatches are routine, not faults.
+            _log.debug(
+                "Ignoring notification from %s service %s characteristic %s "
+                "that does not match its schema: %s",
+                self.device_id,
+                service_uuid,
+                normalised_uuid,
+                exc,
+            )
+            return
         except Exception as exc:
             _log.warning(
                 "Unable to decode notification from %s service %s "

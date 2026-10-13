@@ -1,0 +1,97 @@
+mapping_id: yk_oximeter_observation
+fhir_version: R5
+minimum_outputs: 1
+primary_required: false
+
+source:
+  device_type: yk_oximeter
+  service_uuid: "cdeacd80-5235-4c07-8846-93a37ee6b86d"
+  characteristic_uuid: "cdeacd81-5235-4c07-8846-93a37ee6b86d"
+  characteristic_name: measurement
+
+target:
+  resource_type: Observation
+
+  profile:
+    - "http://hl7.org/fhir/StructureDefinition/oxygensat"
+
+  fixed:
+    status: final
+
+    category:
+      - coding:
+          - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+            code: "vital-signs"
+            display: "Vital Signs"
+
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "2708-6"
+          display: "Oxygen saturation in Arterial blood"
+
+        - system: "http://loinc.org"
+          code: "59408-5"
+          display: "Oxygen saturation in Arterial blood by Pulse oximetry"
+
+      text: "Oxygen saturation by pulse oximetry"
+
+  value:
+    type: Quantity
+    path: valueQuantity
+    value_source: spo2
+
+    unit:
+      source_unit: "%"
+      unit: "%"
+      system: "http://unitsofmeasure.org"
+      code: "%"
+
+additional_measurements:
+  - name: pulse_rate
+    source: pulse_rate
+    required: false
+
+    target:
+      resource_type: Observation
+
+      profile:
+        - "http://hl7.org/fhir/StructureDefinition/heartrate"
+
+      fixed:
+        status: final
+
+        category:
+          - coding:
+              - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+                code: "vital-signs"
+                display: "Vital Signs"
+
+        code:
+          coding:
+            - system: "http://loinc.org"
+              code: "8867-4"
+              display: "Heart rate"
+
+            - system: "http://loinc.org"
+              code: "88889-8"
+              display: "Heart rate by Pulse oximetry"
+
+          text: "Pulse rate by pulse oximetry"
+
+      value:
+        type: Quantity
+        path: valueQuantity
+        value_source: pulse_rate
+
+        unit:
+          source_unit: "bpm"
+          unit: "beats/minute"
+          system: "http://unitsofmeasure.org"
+          code: "/min"
+
+# The device reports SpO2 0 and pulse 0 when no finger is in the sensor.
+constraints:
+  reject_values:
+    spo2: [0]
+    pulse_rate: [0]

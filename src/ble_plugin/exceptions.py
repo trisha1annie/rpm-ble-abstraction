@@ -32,6 +32,11 @@ class PayloadDecodeError(SchemaDrivenBleError):
         super().__init__(full_msg)
 
 
+class UnexpectedFieldValueError(PayloadDecodeError):
+    """Raised when a field does not hold the value its schema declares as expected."""
+    pass
+
+
 class UnsupportedSchemaFeatureError(SchemaDrivenBleError):
     """Raised when the decoder encounters a YAML feature it does not yet support."""
     def __init__(self, message: str, schema_file: str = None, characteristic_uuid: str = None, field_name: str = None, feature_name: str = None):

@@ -7,7 +7,7 @@
   "@id": "urn:bdo:yk-oximeter-payload",
   "@type": "bdo:BinaryDataSchema",
 
-  "bdo:byteLength": 10,
+  "bdo:byteLength": 15,
   "bdo:byteOrder": "littleEndian",
 
   "bdo:field": [
@@ -41,12 +41,20 @@
       "bdo:unit": "bpm"
     },
     {
+      "@id": "urn:bdo:yk-oximeter-payload#perfusion-index-raw",
+      "@type": "bdo:IntegerField",
+      "bdo:name": "perfusion_index_raw",
+      "bdo:byteOffset": 3,
+      "bdo:byteLength": 1,
+      "bdo:dataType": "xsd:unsignedByte"
+    },
+    {
       "@id": "urn:bdo:yk-oximeter-payload#reserved",
       "@type": "bdo:ByteSequenceField",
       "bdo:name": "reserved",
-      "bdo:byteOffset": 3,
-      "bdo:byteLength": 7,
-      "bdo:expectedValue": "00000000000000"
+      "bdo:byteOffset": 4,
+      "bdo:byteLength": 11,
+      "bdo:expectedValue": "0000000000000000000000"
     }
   ]
 }
