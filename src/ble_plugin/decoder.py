@@ -6,9 +6,12 @@ from .schema import (
     LoadedDeviceSchema, CharacteristicSchema, FieldSchema, TypeDefinition, PayloadSchema
 )
 from .models import DecodedPayload, DecodedValue, SfloatSpecialValue
-from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, InvalidPayloadError, TruncatedPayloadError
+from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, InvalidPayloadError, TruncatedPayloadError, UnexpectedFieldValueError
 from fault_handling.quality_handler import payload_quality, handle_payload
 
+# expected_value is only enforced where equality is unambiguous; float fields
+# such as SFLOAT may declare NaN, which is not compared.
+_EXPECTED_VALUE_CHECKED_TYPES = frozenset({"uint8", "uint16", "uint24", "uint32", "bytes"})
 
 def _evaluate_condition(condition: str, context_values: dict[str, Any], context_flags: dict[str, Any]) -> bool:
     """Evaluate conditions like 'flags.time_stamp_present == 1'."""

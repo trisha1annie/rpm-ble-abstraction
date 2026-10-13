@@ -345,16 +345,20 @@ def test_yk_oximeter_rejects_non_zero_reserved_bytes():
         decode_yk("81624b450000000000000000000001")
     assert exc.value.field_name == "reserved"
 
+def test_yk_oximeter_handles_legacy_ten_byte_packet():
+    result = decode_yk("81624800000000000000")
 
-def test_yk_oximeter_rejects_legacy_ten_byte_packet():
-    with pytest.raises(PayloadDecodeError, match="Payload truncated"):
-        decode_yk("81624800000000000000")
+    assert result.quality_flags["truncated_payload"] is True
+    assert result.values["spo2"].physical_value == 98
+    assert result.values["pulse_rate"].physical_value == 72
 
 
-def test_yk_oximeter_rejects_trailing_bytes():
-    with pytest.raises(PayloadDecodeError, match="unexpected trailing bytes"):
-        decode_yk("81624b45000000000000000000000000")
+def test_yk_oximeter_handles_trailing_bytes():
+    result = decode_yk("81624b45000000000000000000000000")
 
+    assert result.quality_flags["trailing_bytes"] is True
+    assert result.values["spo2"].physical_value == 98
+    assert result.values["pulse_rate"].physical_value == 75
 
 def test_router_decodes_yk_oximeter_through_wot_schema():
     result = router(
