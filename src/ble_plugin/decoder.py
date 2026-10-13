@@ -6,7 +6,11 @@ from .schema import (
     LoadedDeviceSchema, CharacteristicSchema, FieldSchema, TypeDefinition, PayloadSchema
 )
 from .models import DecodedPayload, DecodedValue, SfloatSpecialValue
-from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError
+from .exceptions import UnsupportedSchemaFeatureError, PayloadDecodeError, UnexpectedFieldValueError
+
+# expected_value is only enforced where equality is unambiguous; float fields
+# such as SFLOAT may declare NaN, which is not compared.
+_EXPECTED_VALUE_CHECKED_TYPES = frozenset({"uint8", "uint16", "uint24", "uint32", "bytes"})
 
 
 def _evaluate_condition(condition: str, context_values: dict[str, Any], context_flags: dict[str, Any]) -> bool:
@@ -137,6 +141,27 @@ def _get_byte_order(field_schema: FieldSchema) -> str:
     return field_schema.byte_order or "little_endian"
 
 
+def _check_expected_value(field_schema: FieldSchema, val: Any, data: bytes, offset: int, schema: LoadedDeviceSchema, char_uuid: str) -> None:
+    expected = field_schema.expected_value
+    if expected is None or field_schema.type_name not in _EXPECTED_VALUE_CHECKED_TYPES:
+        return
+
+    if field_schema.type_name == "bytes":
+        matches = isinstance(expected, str) and expected.lower() == val
+    else:
+        matches = val == expected
+
+    if not matches:
+        raise UnexpectedFieldValueError(
+            f"Field '{field_schema.name}' has value {val!r}, expected {expected!r}",
+            schema_file=schema.source_path,
+            characteristic_uuid=char_uuid,
+            field_name=field_schema.name,
+            payload_length=len(data),
+            byte_offset=offset
+        )
+
+
 def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: LoadedDeviceSchema, char_uuid: str, context_values: dict, context_flags: dict) -> Tuple[Any, int, dict]:
     """Decode a single schema field."""
     is_present = True
@@ -217,6 +242,8 @@ def _decode_field(field_schema: FieldSchema, data: bytes, offset: int, schema: L
         size_bytes = sub_offset - offset
     else:
         raise UnsupportedSchemaFeatureError(f"Unsupported type: {field_schema.type_name}", schema_file=schema.source_path, characteristic_uuid=char_uuid, field_name=field_schema.name)
+
+    _check_expected_value(field_schema, val, data, offset, schema, char_uuid)
 
     return val, size_bytes, flags
 

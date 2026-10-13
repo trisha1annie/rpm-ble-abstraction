@@ -1,4 +1,5 @@
 # rpm-ble-abstraction
+
 A sensor abstraction layer for heterogeneous BLE healthcare devices. It enables configuration-driven integration of physiological sensors through WoT Thing Descriptions, plugin drivers, and FHIR-based interoperability while providing built-in fault handling and extensibility.
 
 # End-to-End Testing Guide
@@ -54,7 +55,8 @@ sudo systemctl start bluetooth
 sudo hciconfig hci1 down
 sudo BLENO_HCI_DEVICE_ID=1 HCI_CHANNEL_USER=1 node dist/index.js ./configs/bp.yaml
 ```
-*(For weight scale, replace `./configs/bp.yaml` with `./configs/weight.yaml`).*
+
+_(For weight scale, replace `./configs/bp.yaml` with `./configs/weight.yaml`)._
 
 #### macOS (Single Adapter)
 
@@ -99,8 +101,19 @@ Test full route discovery, notification subscription, and payload decoding using
 python -m ble_plugin.tools.inspect_driver --device-id <SIMULATOR_MAC>
 ```
 
+To also print FHIR Observations for supported routes:
+
+```bash
+python -m ble_plugin.tools.inspect_driver \
+    --device-id <SIMULATOR_MAC> \
+    --fhir --patient-reference Patient/example
+```
+
 In the simulator REPL, send notifications:
+
 - Blood Pressure: `notify bp 120 80 72`
 - Weight Scale: `notify weight 75.5 kg`
 
-Press `Ctrl+C` to stop and disconnect.
+Press `Ctrl+C` to stop and disconnect. Use `--fhir` with the blood pressure, weight, or pulse-oximeter simulator. The pulse-oximeter simulator uses the proprietary YK route, which `src/fhir_mapping/yk_oximeter.yaml` maps to SpO2 and heart rate Observations.
+
+The YK pulse oximeter is described by `src/wot/td/oxi.yaml` and `src/wot/bdo/oxi.yaml`. Only its 15-byte `0x81` measurement frames are decoded (SpO2, pulse rate, raw perfusion index). The real device also sends `0x80` waveform frames on the same characteristic. These fail the schema's `expected_value` check and are dropped, so add `--verbose` to see them.

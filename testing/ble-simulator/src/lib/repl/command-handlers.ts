@@ -263,7 +263,7 @@ export class CommandHandlers {
         return [parseInt(values[0]), parseInt(values[1]), parseInt(values[2])];
 
       case "pulse-oximeter":
-        // Expect: spo2 pulse
+        // Expect: spo2 pulse [perfusion_index_raw]
         if (values.length < 2) {
           throw new Error(
             "Pulse oximeter requires at least 2 values: spo2% pulse"
@@ -272,7 +272,7 @@ export class CommandHandlers {
         return [
           parseInt(values[0]),
           parseInt(values[1]),
-          values[2] ? parseFloat(values[2]) : undefined,
+          values[2] ? parseInt(values[2]) : undefined,
         ];
 
       case "weight-scale":
