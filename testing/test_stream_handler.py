@@ -201,20 +201,26 @@ def test_dropout_no_notifications():
 def test_window_jitter():
     handler = StreamHandler()
 
-    handler.intervals = [0.2, 0.21, 0.19, 0.2]
+    handler.jitter_intervals = [0.2, 0.21, 0.19, 0.2]
 
     result = handler.calculate_jitter_window(size=4)
 
-    assert result == pytest.approx(0.04)
+    # Differences: 0.01, 0.02, 0.01
+    # Mean = 0.04 / 3
+    assert result == pytest.approx(0.04 / 3)
+
 
 def test_window_jitter_uses_recent_intervals():
     handler = StreamHandler()
 
-    handler.intervals = [0.5, 0.2, 0.21, 0.19, 0.2]
+    handler.jitter_intervals = [0.5, 0.2, 0.21, 0.19, 0.2]
 
     result = handler.calculate_jitter_window(size=4)
 
-    assert result == pytest.approx(0.04)
+    # Uses only the last four intervals:
+    # [0.2, 0.21, 0.19, 0.2]
+    # Mean = 0.04 / 3
+    assert result == pytest.approx(0.04 / 3)
 
 
 def test_window_jitter_insufficient_data():
