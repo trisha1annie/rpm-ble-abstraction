@@ -103,12 +103,8 @@ async def _run(args: argparse.Namespace) -> int:
                     timeout
                 )
 
-                if dropout_detected and not dropout_reported:
-                    print("Possible dropout detected")
-                    dropout_reported = True
-
-                elif not dropout_detected:
-                    dropout_reported = False
+                if dropout_detected == "dropout_detected":
+                    print("Possible droout detected")
 
 
         def _on_notification(uuid: str, data: bytes) -> None:
@@ -117,7 +113,12 @@ async def _run(args: argparse.Namespace) -> int:
             )
 
             arrival_time = time.monotonic()
+
+            was_dropout = handler.droupout_active
             interval = handler.check_notification(arrival_time)
+
+            if was_dropout:
+                print("Notification stream recovered")
 
             if interval is not None:
 

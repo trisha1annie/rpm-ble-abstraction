@@ -6,6 +6,7 @@ class StreamHandler:
         self.intervals = []
         self.baseline = None
         self.rate_change_window = []
+        self.dropout_active = False
     
     """Check for previous notification and calculate time interval between the two"""
     def check_notification(self, timestamp: float):
@@ -15,6 +16,12 @@ class StreamHandler:
         
         interval = timestamp - self.previous_timestamp
         self.previous_timestamp = timestamp
+
+        if self.dropout_active:
+            self.dropout_active = False
+            self.rate_change_window.clear()
+            return None
+        
         self.intervals.append(interval)
         return interval
     
@@ -49,23 +56,28 @@ class StreamHandler:
             0.6745 * (interval - median)/mad
         )
         return abs(modified_z_score) > 3.5
-
+    
+    """Check if interval is greater than timeout"""
     def check_dropout(self, current_time, timeout):
         if self.previous_timestamp is None:
             return False
         
         return (current_time - self.previous_timestamp > timeout)
     
-    # accounts for accumulated absolute differences between observations
+    """Accounts for accumulated absolute differences between observations"""
     def calculate_jitter(self, intervals: list[float]) -> float:
         if len(intervals) < 2:
             return 0.0
         
-        return sum(
+        differences = [
             abs(intervals[i] - intervals[i-1])
             for i in range(1, len(intervals))
-        )
+        ]
+
+        return sum(differences)/len(differences)
+
     
+    """"""
     def calculate_jitter_window(self, size: int = 10):
         if size < 2:
             raise ValueError("Window size must atleast be 2")
@@ -158,3 +170,15 @@ class StreamHandler:
         self.rate_change_window.clear()
 
         return True
+    
+    def monitor_dropout(self, current_time, timeout):
+        detected = self.check_dropout(current_time, timeout)
+        
+        if detected and not self.dropout_active:
+            self.dropout_active = True
+            return "dropout_detected"
+        
+        if not detected and self.dropout_active:
+            self.dropout_active = False
+            return "Recovered"
+        return None
