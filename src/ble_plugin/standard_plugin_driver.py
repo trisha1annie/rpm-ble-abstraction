@@ -232,7 +232,13 @@ class StandardPluginDriver:
         was_dropout = handler.dropout_active
         interval = handler.check_notification(time.monotonic())
 
-        if was_dropout:
+        if handler.last_notification_dropout:
+            if not was_dropout:
+                _log.warning(
+                    "Notification dropout detected from arrival gap: %s",
+                    characteristic_uuid,
+                )
+
             _log.info(
                 "Notification stream recovered: %s",
                 characteristic_uuid,

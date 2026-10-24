@@ -8,9 +8,12 @@ class StreamHandler:
         self.rate_change_window = []
         self.dropout_active = False
         self.jitter_intervals = []
+        self.last_notification_dropout = False
     
     """Check for previous notification and calculate time interval between the two"""
     def check_notification(self, timestamp: float):
+        self.last_notification_dropout = False 
+
         if self.previous_timestamp is None:
             self.previous_timestamp = timestamp
             return None
@@ -18,7 +21,15 @@ class StreamHandler:
         interval = timestamp - self.previous_timestamp
         self.previous_timestamp = timestamp
 
+        if self.baseline is not None:
+            median_interval, _ = self.baseline
+            timeout = 3 * median_interval
+
+            if interval > timeout:
+                self.dropout_active = True
+
         if self.dropout_active:
+            self.last_notification_dropout = True
             self.dropout_active = False
             self.rate_change_window.clear()
             self.jitter_intervals.clear()
