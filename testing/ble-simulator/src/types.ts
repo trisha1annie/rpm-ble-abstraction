@@ -17,6 +17,18 @@ export interface DeviceConfig {
   name: string;
   displayName?: string;
   services: ServiceConfig[];
+
+  notification?: {
+    enabled: boolean;
+    rate_hz: number;
+    characteristic: string;
+    values: number[];
+
+    faults?: {
+      jitter_ms?: number;
+      jitter_start_after_ms?: number;
+    };
+  };
 }
 
 export interface CharHandle {

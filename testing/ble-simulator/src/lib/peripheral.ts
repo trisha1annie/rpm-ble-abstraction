@@ -2,6 +2,7 @@ import bleno from "@stoprocent/bleno";
 import { createService } from "./service";
 import { registry, clearRegistry } from "./registry";
 import type { DeviceConfig } from "../types";
+import { startNotificationStream, stopNotificationStream,} from "./notification-stream";
 
 let isAdvertising = false;
 let currentConfig: DeviceConfig | null = null;
@@ -9,6 +10,7 @@ let eventListenersSet = false;
 let pendingCallback: (() => void) | null = null;
 
 export function stopPeripheral(): void {
+  stopNotificationStream();
   if (!isAdvertising) {
     return;
   }
@@ -41,6 +43,7 @@ export function startPeripheral(
           startAdvertisingForConfig(currentConfig);
         }
       } else if (state !== "poweredOn") {
+        stopNotificationStream();
         bleno.stopAdvertising();
         isAdvertising = false;
       }
@@ -68,6 +71,9 @@ export function startPeripheral(
         }
 
         console.log("[BLE] Services registered");
+        if (currentConfig) {
+          startNotificationStream(currentConfig);
+        }
 
         console.log("\n📋 Registered characteristics:");
         for (const [name, handle] of Object.entries(registry)) {
@@ -106,18 +112,18 @@ export function startPeripheral(
 }
 
 function startAdvertisingForConfig(config: DeviceConfig): void {
-  const services = config.services.map((svcConfig) => createService(svcConfig));
   bleno.startAdvertising(
     config.name,
-    services.map((s) => s.uuid),
+    config.services.map((service) => service.uuid),
     (err?: Error | null) => {
       console.log("[BLE] startAdvertising callback");
+
       if (err) {
         console.error("Error starting advertising:", err);
         return;
       }
 
-      console.log(`[BLE] Advertising started`);
+      console.log("[BLE] Advertising started");
       isAdvertising = true;
     }
   );
