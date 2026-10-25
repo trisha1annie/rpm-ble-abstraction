@@ -26,7 +26,9 @@ export interface DeviceConfig {
 
     faults?: {
       jitter_ms?: number;
+      dropout_start_after_ms?:number;
       jitter_start_after_ms?: number;
+      dropout_duration_ms?: number;
     };
   };
 }
