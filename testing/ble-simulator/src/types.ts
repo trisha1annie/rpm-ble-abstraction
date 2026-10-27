@@ -29,6 +29,12 @@ export interface DeviceConfig {
       dropout_start_after_ms?:number;
       jitter_start_after_ms?: number;
       dropout_duration_ms?: number;
+      rate_change_start_after_ms: number;
+      rate_change_to_hz: number;
+      malformed_start_after_ms: number;
+      malformed_type: string;
+      malformed_every_n: number;
+      malformed_bytes: number;
     };
   };
 }
