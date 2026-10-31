@@ -86,9 +86,8 @@ async def _run(args: argparse.Namespace) -> int:
 
         handler = StreamHandler()
 
+        
         async def monitor_dropout():
-            dropout_reported = False
-
             while True:
                 await asyncio.sleep(0.1)
 
@@ -98,30 +97,34 @@ async def _run(args: argparse.Namespace) -> int:
                 median_interval, mad = handler.baseline
                 timeout = 3 * median_interval
 
-                dropout_detected = handler.check_dropout(
+                event = handler.monitor_dropout(
                     time.monotonic(),
                     timeout
                 )
 
-                if dropout_detected and not dropout_reported:
+                if event == "dropout_detected":
                     print("Possible dropout detected")
-                    dropout_reported = True
-
-                elif not dropout_detected:
-                    dropout_reported = False
 
 
+        
         def _on_notification(uuid: str, data: bytes) -> None:
             ts = datetime.now(timezone.utc).isoformat(
                 timespec="milliseconds"
             )
 
             arrival_time = time.monotonic()
+
+            # Check whether the stream is recovering from a dropout
+            was_dropout = handler.dropout_active
+
             interval = handler.check_notification(arrival_time)
+
+            if was_dropout:
+                print("Notification stream recovered")
 
             if interval is not None:
 
-                # Establish the initial baseline
+                # 1. Establish the initial timing baseline
                 if handler.baseline is None:
                     baseline = handler.establish_baseline(sample_size=10)
 
@@ -133,10 +136,10 @@ async def _run(args: argparse.Namespace) -> int:
                         )
 
                 else:
-                    # Check for a sustained rate change
-                    changed = handler.detect_rate_change(interval)
+                    # 2. Detect sustained rate changes
+                    rate_changed = handler.detect_rate_change(interval)
 
-                    if changed:
+                    if rate_changed:
                         new_interval, new_mad = handler.baseline
                         new_rate = 1 / new_interval
 
@@ -146,8 +149,8 @@ async def _run(args: argparse.Namespace) -> int:
                             f"({new_interval * 1000:.2f} ms)"
                         )
 
-                    # Detect timing anomalies against the current baseline
                     else:
+                        # 3. Detect timing anomalies
                         anomaly = handler.detect_anomaly(
                             interval,
                             handler.baseline
@@ -156,21 +159,29 @@ async def _run(args: argparse.Namespace) -> int:
                         if anomaly:
                             print("Timing anomaly detected")
 
-                    # Detect unusually long gaps
-                    median_interval, mad = handler.baseline
+                        # 4. Detect unusually long notification gaps
+                        median_interval, mad = handler.baseline
 
-                    if interval > 3 * median_interval:
-                        print("Long notification gap detected")
+                        if interval > 3 * median_interval:
+                            print("Long notification gap detected")
 
-                print(f"Interval: {interval * 1000:.2f} ms")
-
-                # Calculate rolling-window jitter
+                # 5. Calculate jitter once per notification
                 jitter = handler.calculate_jitter_window(size=10)
 
                 if jitter is not None:
                     print(f"Window jitter: {jitter * 1000:.2f} ms")
 
+                    if handler.detect_jitter(jitter, threshold=0.03):
+                        print(
+                            f"High jitter detected: "
+                            f"{jitter * 1000:.2f} ms"
+                        )
+
+                print(f"Interval: {interval * 1000:.2f} ms")
+
+            # Always print the raw BLE notification
             print(f"{ts} | {uuid} | {data.hex()}")
+
 
         await client.subscribe(normalised_char, _on_notification)
 

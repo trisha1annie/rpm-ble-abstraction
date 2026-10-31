@@ -201,20 +201,26 @@ def test_dropout_no_notifications():
 def test_window_jitter():
     handler = StreamHandler()
 
-    handler.intervals = [0.2, 0.21, 0.19, 0.2]
+    handler.jitter_intervals = [0.2, 0.21, 0.19, 0.2]
 
     result = handler.calculate_jitter_window(size=4)
 
-    assert result == pytest.approx(0.04)
+    # Differences: 0.01, 0.02, 0.01
+    # Mean = 0.04 / 3
+    assert result == pytest.approx(0.04 / 3)
+
 
 def test_window_jitter_uses_recent_intervals():
     handler = StreamHandler()
 
-    handler.intervals = [0.5, 0.2, 0.21, 0.19, 0.2]
+    handler.jitter_intervals = [0.5, 0.2, 0.21, 0.19, 0.2]
 
     result = handler.calculate_jitter_window(size=4)
 
-    assert result == pytest.approx(0.04)
+    # Uses only the last four intervals:
+    # [0.2, 0.21, 0.19, 0.2]
+    # Mean = 0.04 / 3
+    assert result == pytest.approx(0.04 / 3)
 
 
 def test_window_jitter_insufficient_data():
@@ -223,3 +229,44 @@ def test_window_jitter_insufficient_data():
     handler.intervals = [0.2, 0.21]
 
     assert handler.calculate_jitter_window(size=4) is None
+
+
+def test_dropout_detected_from_notification_gap():
+    handler = StreamHandler()
+
+    handler.baseline = (0.2, 0.01)
+
+    handler.check_notification(0.0)
+    handler.check_notification(0.2)
+
+    # Gap of 650 ms exceeds the 600 ms timeout
+    result = handler.check_notification(0.85)
+
+    assert result is None
+    assert handler.last_notification_dropout is True
+    assert handler.dropout_active is False
+
+    # The 650 ms gap must not enter timing statistics
+    assert handler.intervals == pytest.approx([0.2])
+    assert handler.jitter_intervals == []
+
+
+def test_normal_notifications_after_missed_dropout():
+    handler = StreamHandler()
+
+    handler.baseline = (0.2, 0.01)
+
+    handler.check_notification(0.0)
+    handler.check_notification(0.2)
+
+    # Missed dropout.
+    handler.check_notification(0.85)
+
+    # Normal streaming resumes.
+    result = handler.check_notification(1.05)
+
+    assert result == pytest.approx(0.2)
+    assert handler.last_notification_dropout is False
+    assert handler.dropout_active is False
+
+    assert len(handler.jitter_intervals) == 1

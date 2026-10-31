@@ -1,0 +1,2 @@
+timestamp,characteristic_uuid,event,observed_interval_ms,baseline_interval_ms,new_rate_hz
+348526.391972375,cdeacd81-5235-4c07-8846-93a37ee6b86d,rate_change_detected,480.0953749800101,509.9625409930013,1.9609283420166421

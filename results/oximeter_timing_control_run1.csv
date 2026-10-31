@@ -1,0 +1,2 @@
+timestamp,characteristic_uuid,interval_ms,baseline_median_ms,baseline_mad_ms,modified_z_score,jitter_ms,anomaly_detected,jitter_detected,raw_jitter_detected,confirmed_jitter_detected
+363687.847502333,00002a35-0000-1000-8000-00805f9b34fb,201.16308302385733,200.0,10.0,0.07844994995917584,,False,False,False,False

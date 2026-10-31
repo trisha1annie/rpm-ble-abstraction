@@ -1,0 +1,3 @@
+timestamp,characteristic_uuid,event,observed_interval_ms,baseline_interval_ms,new_rate_hz
+312540.17117875,cdeacd81-5235-4c07-8846-93a37ee6b86d,dropout_detected,,209.6588749845978,
+312541.709277666,cdeacd81-5235-4c07-8846-93a37ee6b86d,dropout_recovered,2190.1002910453826,209.6588749845978,
