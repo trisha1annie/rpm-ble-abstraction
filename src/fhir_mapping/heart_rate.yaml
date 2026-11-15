@@ -1,0 +1,87 @@
+mapping_id: heart_rate_observation
+fhir_version: R5
+minimum_outputs: 1
+primary_required: false
+
+source:
+  device_type: heart_rate_monitor
+  service_uuid: "180D"
+  characteristic_uuid: "2A37"
+  characteristic_name: heart_rate_measurement
+
+target:
+  resource_type: Observation
+
+  profile:
+    - "http://hl7.org/fhir/StructureDefinition/heartrate"
+
+  fixed:
+    status: final
+
+    category:
+      - coding:
+          - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+            code: "vital-signs"
+            display: "Vital Signs"
+
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "8867-4"
+          display: "Heart rate"
+      text: "Heart rate"
+
+  value:
+    type: Quantity
+    path: valueQuantity
+    value_source: heart_rate_uint8
+
+    unit:
+      source_unit: "bpm"
+      unit: "beats/minute"
+      system: "http://unitsofmeasure.org"
+      code: "/min"
+
+additional_measurements:
+  - name: heart_rate_16bit
+    source: heart_rate_uint16
+    required: false
+
+    target:
+      resource_type: Observation
+
+      profile:
+        - "http://hl7.org/fhir/StructureDefinition/heartrate"
+
+      fixed:
+        status: final
+
+        category:
+          - coding:
+              - system: "http://terminology.hl7.org/CodeSystem/observation-category"
+                code: "vital-signs"
+                display: "Vital Signs"
+
+        code:
+          coding:
+            - system: "http://loinc.org"
+              code: "8867-4"
+              display: "Heart rate"
+          text: "Heart rate"
+
+      value:
+        type: Quantity
+        path: valueQuantity
+        value_source: heart_rate_uint16
+
+        unit:
+          source_unit: "bpm"
+          unit: "beats/minute"
+          system: "http://unitsofmeasure.org"
+          code: "/min"
+
+constraints:
+  reject_values:
+    heart_rate_uint8: [0]
+    heart_rate_uint16: [0]
+

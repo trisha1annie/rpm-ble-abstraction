@@ -1,0 +1,46 @@
+device_type: heart_rate_monitor
+service:
+  uuid: "180D"
+  name: heart_rate
+
+characteristics:
+  - uuid: "2A37"
+    name: heart_rate_measurement
+    access: ["notify"]
+    payload_schema:
+      fields:
+        - name: flags
+          type: boolean[8]
+          size_bytes: 1
+          bitfield:
+            bit_0: heart_rate_value_format_uint16
+            bit_1: sensor_contact_detected
+            bit_2: sensor_contact_supported
+            bit_3: energy_expended_present
+            bit_4: rr_interval_present
+            # bits 5-7 reserved
+
+        - name: heart_rate_uint8
+          type: uint8
+          size_bytes: 1
+          unit: "bpm"
+          present_if: "flags.heart_rate_value_format_uint16 == 0"
+
+        - name: heart_rate_uint16
+          type: uint16
+          size_bytes: 2
+          unit: "bpm"
+          present_if: "flags.heart_rate_value_format_uint16 == 1"
+
+        - name: energy_expended
+          type: uint16
+          size_bytes: 2
+          unit: "kJ"
+          present_if: "flags.energy_expended_present == 1"
+
+        - name: rr_interval
+          type: uint16
+          size_bytes: 2
+          unit: "s"
+          resolution: 0.0009765625
+          present_if: "flags.rr_interval_present == 1"
