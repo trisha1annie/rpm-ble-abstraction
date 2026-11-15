@@ -126,7 +126,7 @@ async def _run(args: argparse.Namespace) -> int:
 
                 # 1. Establish the initial timing baseline
                 if handler.baseline is None:
-                    baseline = handler.establish_baseline(sample_size=10)
+                    baseline = handler.establish_baseline(sample_size=50)
 
                     if baseline is not None:
                         print(

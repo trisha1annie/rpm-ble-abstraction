@@ -170,13 +170,21 @@ def test_no_dropout():
     assert handler.check_dropout(1.2, 0.6) is False
 
 
-# TEST 15: Dropout after prolonged silence
-def test_dropout_detected():
+# TEST 15: Prolonged  interval - gap detection
+def test_suspicious_gap_detected_from_notification():
     handler = StreamHandler()
+    handler.baseline = (0.2, 0.01)
 
-    handler.check_notification(1.0)
+    handler.check_notification(0.0)
+    handler.check_notification(0.2)
 
-    assert handler.check_dropout(2.0, 0.6) is True
+    result = handler.check_notification(0.85)
+
+    assert result is None
+    assert handler.pending_long_gap is True
+    assert handler.last_notification_dropout is False
+    assert handler.dropout_active is False
+    assert handler.jitter_intervals == []
 
 
 # TEST 16: Dropout clears when notifications resume
@@ -205,8 +213,6 @@ def test_window_jitter():
 
     result = handler.calculate_jitter_window(size=4)
 
-    # Differences: 0.01, 0.02, 0.01
-    # Mean = 0.04 / 3
     assert result == pytest.approx(0.04 / 3)
 
 
@@ -217,9 +223,7 @@ def test_window_jitter_uses_recent_intervals():
 
     result = handler.calculate_jitter_window(size=4)
 
-    # Uses only the last four intervals:
-    # [0.2, 0.21, 0.19, 0.2]
-    # Mean = 0.04 / 3
+    # Uses only the last four intervals
     assert result == pytest.approx(0.04 / 3)
 
 
@@ -242,31 +246,121 @@ def test_dropout_detected_from_notification_gap():
     # Gap of 650 ms exceeds the 600 ms timeout
     result = handler.check_notification(0.85)
 
+    # The gap is suspicious but not yet confirmed as a dropout
     assert result is None
-    assert handler.last_notification_dropout is True
+    assert handler.pending_long_gap is True
+    assert handler.last_notification_dropout is False
     assert handler.dropout_active is False
 
-    # The 650 ms gap must not enter timing statistics
-    assert handler.intervals == pytest.approx([0.2])
+    # The suspicious gap must not affect jitter statistics
     assert handler.jitter_intervals == []
 
 
 def test_normal_notifications_after_missed_dropout():
     handler = StreamHandler()
-
     handler.baseline = (0.2, 0.01)
 
     handler.check_notification(0.0)
     handler.check_notification(0.2)
 
-    # Missed dropout.
+    # Suspicious gap.
     handler.check_notification(0.85)
 
     # Normal streaming resumes.
     result = handler.check_notification(1.05)
 
     assert result == pytest.approx(0.2)
-    assert handler.last_notification_dropout is False
+    assert handler.last_notification_dropout is True
+    assert handler.pending_long_gap is False
     assert handler.dropout_active is False
-
     assert len(handler.jitter_intervals) == 1
+
+
+def test_sustained_slowdown_can_update_baseline():
+    handler = StreamHandler()
+    handler.baseline = (0.1, 0.005)
+
+    # Five stable intervals representing a change
+    # from 10 Hz to 2 Hz.
+    results = [
+        handler.detect_rate_change(0.5)
+        for _ in range(5)
+    ]
+
+    assert results == [False, False, False, False, True]
+    assert handler.baseline[0] == pytest.approx(0.5)
+
+
+def test_isolated_long_interval_does_not_change_baseline():
+    handler = StreamHandler()
+    handler.baseline = (0.1, 0.005)
+
+    assert handler.detect_rate_change(0.5) is False
+    assert handler.detect_rate_change(0.1) is False
+
+    assert handler.baseline[0] == pytest.approx(0.1)
+    assert handler.rate_change_window == []
+
+
+def test_background_monitor_detects_dropout():
+    handler = StreamHandler()
+    handler.baseline = (0.2, 0.01)
+
+    handler.check_notification(1.0)
+    handler.check_notification(1.2)
+
+    # No notification for 650 ms
+    event = handler.monitor_dropout(1.85, timeout=0.6)
+
+    assert event == "dropout_detected"
+    assert handler.dropout_active is True
+
+    # Repeated monitoring must not generate duplicate events
+    event = handler.monitor_dropout(1.95, timeout=0.6)
+
+    assert event is None
+    assert handler.dropout_active is True
+
+
+def test_background_dropout_recovery():
+    handler = StreamHandler()
+    handler.baseline = (0.2, 0.01)
+
+    handler.check_notification(1.0)
+    handler.check_notification(1.2)
+
+    # Detect dropout
+    handler.monitor_dropout(1.85, timeout=0.6)
+
+    assert handler.dropout_active is True
+
+    # Notification resumes
+    result = handler.check_notification(3.2)
+
+    assert result is None
+    assert handler.dropout_active is False
+    assert handler.pending_long_gap is False
+
+    # Normal notifications continue
+    result = handler.check_notification(3.4)
+
+    assert result == pytest.approx(0.2)
+    assert handler.last_notification_dropout is False
+
+
+def test_normal_streaming_no_false_dropout():
+    handler = StreamHandler()
+    handler.baseline = (0.2, 0.01)
+
+    timestamps = [1.0, 1.2, 1.4, 1.6, 1.8]
+
+    for timestamp in timestamps:
+        handler.check_notification(timestamp)
+
+        event = handler.monitor_dropout(
+            timestamp + 0.1,
+            timeout=0.6
+        )
+
+        assert event is None
+        assert handler.dropout_active is False

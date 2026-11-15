@@ -9,39 +9,58 @@ class StreamHandler:
         self.dropout_active = False
         self.jitter_intervals = []
         self.last_notification_dropout = False
+        self.pending_long_gap = False
+        self.consecutive_jitter_warnings = 0
+        self.required_jitter_warnings = 3
+        self.slowdown_candidate = False
+        self.slowdown_candidate_since = None
+        self.jitter_samples_since_check = 0
     
     """Check for previous notification and calculate time interval between the two"""
     def check_notification(self, timestamp: float):
-        self.last_notification_dropout = False 
+        self.last_notification_dropout = False
 
         if self.previous_timestamp is None:
             self.previous_timestamp = timestamp
             return None
-        
+
         interval = timestamp - self.previous_timestamp
         self.previous_timestamp = timestamp
+
+        # Check whether the background monitor already detected this dropout
+        was_dropout = self.dropout_active
+
+        if was_dropout:
+            self.dropout_active = False
+            self.pending_long_gap = False
 
         if self.baseline is not None:
             median_interval, _ = self.baseline
             timeout = 3 * median_interval
 
             if interval > timeout:
-                self.dropout_active = True
+                # Only flag a retrospective dropout if it wasn't already detected
+                if not was_dropout:
+                    self.pending_long_gap = True
 
-        if self.dropout_active:
+                self.reset_jitter_detection()
+                return None
+
+        if self.pending_long_gap:
             self.last_notification_dropout = True
-            self.dropout_active = False
+            self.pending_long_gap = False
             self.rate_change_window.clear()
-            self.jitter_intervals.clear()
-            return None
-        
+            self.reset_jitter_detection()
+
         self.intervals.append(interval)
         self.jitter_intervals.append(interval)
+        self.jitter_samples_since_check += 1
 
         if len(self.jitter_intervals) > 10:
             self.jitter_intervals.pop(0)
+
         return interval
-    
+
     """Calculates a baseline rates for device: depend on the time intervals"""
     def calculate_baseline(self):
         if not self.intervals:
@@ -76,8 +95,14 @@ class StreamHandler:
         # Relative tolerance: 10% of expected interval
         tolerance = max(0.005, 0.10 * median_interval)
 
+        deviation = abs(interval - median_interval)
+
+        # Ignore deviations within the tolerance
+        if deviation <= tolerance:
+            return False
+
         if mad == 0:
-            return abs(interval - median_interval) > tolerance
+            return True
 
         modified_z_score = (
             0.6745 * (interval - median_interval) / mad
@@ -109,11 +134,16 @@ class StreamHandler:
     """"""
     def calculate_jitter_window(self, size: int = 10):
         if size < 2:
-            raise ValueError("Window size must atleast be 2")
-        
-        if len(self.jitter_intervals) < size: 
+            raise ValueError("Window size must be at least 2")
+
+        if len(self.jitter_intervals) < size:
             return None
-        
+
+        if self.jitter_samples_since_check < size:
+            return None
+
+        self.jitter_samples_since_check = 0
+
         return self.calculate_jitter(
             self.jitter_intervals[-size:]
         )
@@ -133,7 +163,7 @@ class StreamHandler:
 
         return 1 / median_interval
 
-    def establish_baseline(self, sample_size: int = 10):
+    def establish_baseline(self, sample_size: int = 50):
         if self.baseline is not None:
             return self.baseline
 
@@ -173,10 +203,15 @@ class StreamHandler:
 
         recent_intervals = self.rate_change_window[-window_size:]
         recent_median = median(recent_intervals)
-        tolerance = 0.15
+        relative_tolerance = 0.15
+        absolute_tolerance = 0.03  # 30 ms
 
         stable = all(
-            abs(value - recent_median) / recent_median <= tolerance
+            abs(value - recent_median)
+            <= max(
+                absolute_tolerance,
+                relative_tolerance * recent_median
+            )
             for value in recent_intervals
         )
 
@@ -196,17 +231,58 @@ class StreamHandler:
         )
 
         self.rate_change_window.clear()
-        self.jitter_intervals.clear()
+        self.reset_jitter_detection()
         return True
     
     def monitor_dropout(self, current_time, timeout):
         detected = self.check_dropout(current_time, timeout)
-        
+
         if detected and not self.dropout_active:
             self.dropout_active = True
             return "dropout_detected"
-        
-        if not detected and self.dropout_active:
-            self.dropout_active = False
-            return "recovered"
+
         return None
+
+    """Check whether a long interval is a sustained stable slowdown """
+    def evaluate_long_interval(
+        self,
+        interval: float,
+        timestamp: float,
+    ) -> bool:
+        if self.baseline is None:
+            return False
+
+        baseline_interval, _ = self.baseline
+
+        if interval <= 3 * baseline_interval:
+            return False
+
+        if not self.slowdown_candidate:
+            self.slowdown_candidate = True
+            self.slowdown_candidate_since = timestamp
+
+        rate_changed = self.detect_rate_change(interval)
+
+        if rate_changed:
+            self.slowdown_candidate = False
+            self.slowdown_candidate_since = None
+            self.dropout_active = False
+            self.pending_long_gap = False
+
+        return rate_changed
+    
+    def confirm_jitter(self, jitter_detected: bool) -> bool:
+        if jitter_detected:
+            self.consecutive_jitter_warnings += 1
+        else:
+            self.consecutive_jitter_warnings = 0
+
+        return (
+            self.consecutive_jitter_warnings
+            >= self.required_jitter_warnings
+        )
+    
+    def reset_jitter_detection(self):
+        self.jitter_intervals.clear()
+        self.consecutive_jitter_warnings = 0
+        self.jitter_samples_since_check = 0

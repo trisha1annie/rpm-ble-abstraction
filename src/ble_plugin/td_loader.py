@@ -116,6 +116,7 @@ def load_wot_schema(file_path: str | Path) -> LoadedDeviceSchema:
             "size_bytes": entry.get("bdo:byteLength", 0),
             "unit": entry.get("bdo:unit"),
             "expected_value": entry.get("bdo:expectedValue"),
+            "required": entry.get("bdo:required", False),
         }
 
         converted_fields.append(converted_field)

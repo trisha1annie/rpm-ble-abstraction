@@ -1,0 +1,1687 @@
+Scanning for 3.0s to resolve device path...
+Connecting to 4E110FF7-EE22-0B81-BB0D-79350113666B via StandardPluginDriver ...
+Connected.
+Subscribed routes: ['cdeacd81-5235-4c07-8846-93a37ee6b86d']
+Listening for measurements... Press Ctrl+C to stop.
+
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:25.132650+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:25.342515+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:25.551671+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:25.732849+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:25.942611+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:26.152360+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:26.362723+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:26.542478+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:26.753631+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:26.964098+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:27.173548+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:27.352304+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:27.564100+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:27.773575+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:27.985569+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:28.162694+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:28.373554+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:28.582737+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:28.763610+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:28.973506+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:29.213502+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:29.392184+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:29.572533+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:29.782588+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:29.993098+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:30.171954+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:30.384957+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:30.593460+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:30.802611+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:30.982405+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:31.193603+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:31.403604+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:31.613680+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:31.793610+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:32.002676+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:32.212853+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:32.392705+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:32.603043+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:32.813616+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:33.022781+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:33.203704+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:33.413684+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:33.623700+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:33.803667+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:34.013149+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:34.222855+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:34.433790+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:34.613658+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:34.823622+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:35.033693+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+INFO:ble_plugin.standard_plugin_driver:Timing baseline established for cdeacd81-5235-4c07-8846-93a37ee6b86d: 209.65 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:35.214393+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:35.423077+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:35.632980+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:35.843552+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:36.025883+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:36.235849+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:36.443071+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:36.621977+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:36.835172+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:37.044472+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:37.253925+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:37.432403+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:37.643067+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:37.853251+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:38.034232+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:38.243706+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:38.452525+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:38.662853+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:38.843814+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:39.053683+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:39.262935+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:39.472901+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:39.653306+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:39.862837+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:40.073754+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:40.253020+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:40.463801+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:40.673759+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:40.883423+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:41.064041+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:41.273689+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:41.483349+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:41.693921+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:41.874357+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:42.082405+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:42.292958+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:42.473026+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:42.683613+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:42.893405+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:43.104187+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:43.284616+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:43.493040+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:43.702836+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:43.913144+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:44.093133+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:44.304763+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:44.515010+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:44.692990+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:44.933346+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:45.112667+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:45.293790+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:45.502998+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:45.717082+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:45.923517+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:46.103135+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:46.329811+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:46.522098+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:46.732589+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:46.912910+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:47.122996+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:47.333027+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:47.513050+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:47.723023+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:47.932987+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:48.143064+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:48.325296+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:48.532964+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:48.743097+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:48.923981+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:49.133053+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:49.343066+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:49.553106+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:49.733368+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:49.944813+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:50.182429+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:50.333093+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:50.543098+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:50.753045+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:50.965106+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:51.144282+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:51.352954+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 30.25 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:51.563285+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:51.773864+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:51.955248+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:52.164583+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:52.373294+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:52.585809+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:52.792712+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:52.973146+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:53.184063+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:53.362980+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:53.573904+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:53.783845+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:53.995674+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:54.172867+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:54.382984+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:54.592811+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:54.773092+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:54.983004+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:55.192261+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:55.432137+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:55.583423+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:55.792991+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.003038+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.183152+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.424400+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.602382+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 40.62 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.813746+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 44.09 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:56.993038+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 44.16 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:57.203074+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 34.26 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:57.413046+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:57.623023+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:57.803036+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:58.073147+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 44.18 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:58.223128+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 40.61 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:58.404293+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 40.08 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:58.612741+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 36.78 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:58.823253+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 33.44 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:59.033249+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 36.76 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:59.214314+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 40.16 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:59.423974+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 37.01 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:59.633259+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+WARNING:ble_plugin.standard_plugin_driver:High jitter for cdeacd81-5235-4c07-8846-93a37ee6b86d: 30.13 ms
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:36:59.814109+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:00.023825+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:00.232438+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:00.443418+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:00.624081+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:00.834486+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:01.044480+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:01.252895+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:01.433340+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:01.642947+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:01.853227+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:02.064761+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:02.243283+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:02.453979+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:02.663134+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:02.843512+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:03.052259+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:03.263201+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:03.472952+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:03.654469+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:03.864352+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:04.073464+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:04.253804+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:04.463347+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:04.673573+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:04.883470+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Timing anomaly detected for cdeacd81-5235-4c07-8846-93a37ee6b86d
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:05.067249+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:05.276910+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {'truncated_payload': True}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:05.483491+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+
+[MEASUREMENT RECEIVED] 2026-10-27T10:37:05.695104+00:00
+  Device:         4E110FF7-EE22-0B81-BB0D-79350113666B
+  Service:        cdeacd80-5235-4c07-8846-93a37ee6b86d
+  Characteristic: cdeacd81-5235-4c07-8846-93a37ee6b86d
+  Values:         {'flag': DecodedValue(raw_value=129, physical_value=129, unit=None, resolution=None), 'spo2': DecodedValue(raw_value=98, physical_value=98, unit='%', resolution=None), 'pulse_rate': DecodedValue(raw_value=75, physical_value=75, unit='bpm', resolution=None), 'perfusion_index_raw': DecodedValue(raw_value=0, physical_value=0, unit=None, resolution=None), 'reserved': DecodedValue(raw_value='0000000000000000000000', physical_value='0000000000000000000000', unit=None, resolution=None)}
+  Flags:          {}
+  Quality Flags:  {}
+WARNING:ble_plugin.standard_plugin_driver:Notification dropout detected for cdeacd81-5235-4c07-8846-93a37ee6b86d

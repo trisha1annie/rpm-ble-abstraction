@@ -5,6 +5,7 @@ import pytest
 
 from ble_plugin.models import DecodedPayload
 from ble_plugin.plugin_driver import DriverMeasurement, PluginDriver
+from ble_plugin.standard_plugin_driver import StandardPluginDriver
 
 
 class CompleteDriver:
@@ -56,3 +57,11 @@ def test_runtime_protocol_accepts_complete_driver():
 
 def test_runtime_protocol_rejects_incomplete_driver():
     assert not isinstance(IncompleteDriver(), PluginDriver)
+
+
+def test_standard_plugin_driver_implements_protocol():
+    assert isinstance(StandardPluginDriver, type)
+
+    assert hasattr(StandardPluginDriver, "start")
+    assert hasattr(StandardPluginDriver, "stop")
+    assert hasattr(StandardPluginDriver, "device_id")

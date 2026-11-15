@@ -98,7 +98,7 @@ In the simulator REPL, trigger a notification: `notify bp 120 80 72`.
 Test full route discovery, notification subscription, and payload decoding using `ble_plugin/tools/inspect_driver.py`:
 
 ```bash
-python -m ble_plugin.tools.inspect_driver --device-id <SIMULATOR_MAC>
+python -m ble_plugin.tools.inspect_driver --device-id F6DD0A17-5E9A-34D2-2D54-6FCC7F2A7F14
 ```
 
 To also print FHIR Observations for supported routes:
