@@ -1,6 +1,27 @@
 name: "BleModuleA"
 displayName: "YK Oximeter"
 
+notification:
+  enabled: true
+  rate_hz: 5
+  characteristic: "oxi"
+  values: [98, 75]
+  faults:
+    jitter_ms: 0
+    jitter_start_after_ms: 20000
+
+    dropout_start_after_ms: 15000
+    dropout_duration_ms: 0
+
+    rate_change_start_after_ms: 10000
+    rate_change_to_hz: 0
+
+    malformed_start_after_ms: 15000
+    malformed_type: "trailing_bytes"
+    malformed_every_n: 0
+    malformed_bytes: 0
+
+
 services:
   - uuid: "cdeacd80-5235-4c07-8846-93a37ee6b86d"
     characteristics:
