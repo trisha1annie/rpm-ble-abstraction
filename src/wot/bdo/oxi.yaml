@@ -29,7 +29,8 @@
       "bdo:dataType": "xsd:unsignedByte",
       "bdo:minimum": 0,
       "bdo:maximum": 100,
-      "bdo:unit": "%"
+      "bdo:unit": "%",
+      "bdo:required": true
     },
     {
       "@id": "urn:bdo:yk-oximeter-payload#pulse-rate",
@@ -38,7 +39,8 @@
       "bdo:byteOffset": 2,
       "bdo:byteLength": 1,
       "bdo:dataType": "xsd:unsignedByte",
-      "bdo:unit": "bpm"
+      "bdo:unit": "bpm",
+      "bdo:required": true
     },
     {
       "@id": "urn:bdo:yk-oximeter-payload#perfusion-index-raw",

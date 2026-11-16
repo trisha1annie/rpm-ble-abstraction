@@ -28,6 +28,7 @@ def _print_decoded(measurement) -> None:
     print(f"  Characteristic: {measurement.characteristic_uuid}")
     print(f"  Values:         {measurement.payload.values}")
     print(f"  Flags:          {measurement.payload.status_flags}")
+    print(f"  Quality Flags:  {measurement.payload.quality_flags}")
 
 
 def _on_measurement(measurement) -> None:
