@@ -1,6 +1,26 @@
 name: "A&D_UA-651BLE"
 displayName: "A&D UA-651 Blood Pressure Monitor"
 
+notification:
+  enabled: true
+  rate_hz: 1
+  characteristic: "bp"
+  values: [120, 80, 72]
+  faults:
+    jitter_ms: 0
+    jitter_start_after_ms: 20000
+
+    dropout_start_after_ms: 15000
+    dropout_duration_ms: 0
+
+    rate_change_start_after_ms: 10000
+    rate_change_to_hz: 0
+
+    malformed_start_after_ms: 15000
+    malformed_type: "truncate"
+    malformed_every_n: 0
+    malformed_bytes: 0
+
 services:
   - uuid: "00001810-0000-1000-8000-00805f9b34fb"
     characteristics:

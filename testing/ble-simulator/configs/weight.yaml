@@ -1,6 +1,26 @@
 name: "A&D_UC-352BLE"
 displayName: "A&D UC-352 Weight Scale"
 
+notification:
+  enabled: true
+  rate_hz: 1
+  characteristic: "weight"
+  values: [75.5, "kg"]
+  faults:
+    jitter_ms: 0
+    jitter_start_after_ms: 20000
+
+    dropout_start_after_ms: 15000
+    dropout_duration_ms: 0
+
+    rate_change_start_after_ms: 10000
+    rate_change_to_hz: 0
+
+    malformed_start_after_ms: 15000
+    malformed_type: "truncate"
+    malformed_every_n: 5
+    malformed_bytes: 2
+
 services:
   - uuid: "0000181d-0000-1000-8000-00805f9b34fb"
     characteristics:
@@ -9,7 +29,7 @@ services:
         properties: ["indicate"]
         encoder:
           type: "weight-scale"
-        
+
       - uuid: "00002a9e-0000-1000-8000-00805f9b34fb"
         name: "weight-scale-feature"
         properties: ["read"]

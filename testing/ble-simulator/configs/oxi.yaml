@@ -1,6 +1,46 @@
 name: "BleModuleA"
 displayName: "YK Oximeter"
 
+notification:
+  enabled: true
+  rate_hz: 5
+  characteristic: "oxi"
+  values: [98, 75]
+  faults:
+    jitter_ms: 30 
+    jitter_start_after_ms: 0
+
+    dropout_start_after_ms: 15000
+    dropout_duration_ms: 0
+
+    rate_change_start_after_ms: 10000
+    rate_change_to_hz: 0
+
+    malformed_start_after_ms: 15000
+    malformed_type: "truncate"
+    malformed_every_n: 0
+    malformed_bytes: 10
+    
+    # # 1. Jitter starts at 25 seconds
+    # jitter_ms: 60
+    # jitter_start_after_ms: 25000
+
+    # # 2. Dropout starts at 45 seconds
+    # dropout_start_after_ms: 45000
+    # dropout_duration_ms: 5000
+
+    # # 3. Rate slows from 5 Hz to 2 Hz at 60 seconds
+    # rate_change_start_after_ms: 60000
+    # rate_change_to_hz: 2
+
+    # # 4. Malformed payloads start at 15 seconds
+    # malformed_start_after_ms: 15000
+    # malformed_type: "truncate"
+    # malformed_every_n: 5
+    # malformed_bytes: 4
+
+
+
 services:
   - uuid: "cdeacd80-5235-4c07-8846-93a37ee6b86d"
     characteristics:
